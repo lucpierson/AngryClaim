@@ -1,4 +1,4 @@
-LUC TETS AngryTweet Fuse Service Works Demo
+AngryTweet Fuse Service Works Demo
 ==================================
 
 Installation Notes
