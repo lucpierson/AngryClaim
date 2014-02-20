@@ -188,6 +188,10 @@ echo "You can now start FSW  with $AG_FSW_HOME/bin/standalone.sh "
 echo "               and BAM with $AG_BAM_HOME/bin/standalone.sh "
 echo
 
+# echo BAM users : 
+#    admin / redhat123@
+#    btic  / redhat123@
+
 echo "$PRODUCT $VERSION $DEMO Setup Complete."
 echo
 
