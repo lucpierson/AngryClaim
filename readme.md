@@ -5,13 +5,12 @@ AngryTweet Fuse Service Works Demo
 # ********* IN CONSTRUCTION             *****
 # *******************************************
 
-Installation pre-requisite
---------------------------
-on RHEL 6.4 (Server or Workstation)
+Installation pre-requisite (RHEL 6.4 server)
+--------------------------------------------
 
 1) Install MAVEN
-sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
 
+sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
 sudo yum install apache-maven
 sudo mkdir /usr/share/apache-maven/conf/logging
 
@@ -22,18 +21,22 @@ then
 fi 
 
 2) Install MYSQL
+
 sudo yum install mysql-server
 sudo yum install mysql-connector-java
 sudo chkconfig mysqld on
 
 3) Install GIT
+
 sudo yum install git
 
 4) clone the demo from gitHub
+
 cd ~
 git clone https://github.com/lucpierson/AngryClaim.git
 
 5) Download required softwares and place them in ~/AngryClaim/installs
+
      from Redhat downloads       
         ==> jboss-fsw-installer-6.0.0.GA-redhat-4.jar 
         ==> jboss-bpms-6.0.0.GA-redhat-1-deployable-eap6.x.zip
