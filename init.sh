@@ -56,8 +56,8 @@ javac -version>/dev/null || { echo "java jdk is required but not installed yet. 
 mysql -u root -p -h localhost -e"CREATE USER 'jboss'@'localhost' IDENTIFIED BY 'jboss';"
 mysql -u root -p -h localhost -e"GRANT ALL PRIVILEGES ON * . * TO 'jboss'@'localhost';"
 mysql -u root -p -h localhost -e"FLUSH PRIVILEGES;"
-mysql -u jboss -pjboss -h localhost -e "create schema `angrytweet`;"
-mysql -u jboss -pjboss -h localhost -e "create schema `bpms-generic-load-demo`;" || { echo "Error in creating required databases. Please check and try again....."; exit 1; }
+mysql -u jboss -pjboss -h localhost -e"create schema angrytweet;"
+mysql -u jboss -pjboss -h localhost -e"create schema bpmsdemo;" || { echo "Error in creating required databases. Please check and try again....."; exit 1; }
 
 # make some checks first before proceeding.	
 if [[ -r $AG_SRC_DIR/$EAP || -L $AG_SRC_DIR/$EAP ]]; then
@@ -98,7 +98,7 @@ cd ~
 
 
 echo "  - enabling demo accounts logins in application-users.properties file..."
-echo
+echo 
 cp $AG_DEMO/etc/application-users.properties $AG_BAM_CONF  || { echo "application-users.properties not in /.etc.... aborting."; exit 1; }
 
 echo "  - enabling demo accounts role setup in application-roles.properties file..."

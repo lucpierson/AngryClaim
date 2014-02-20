@@ -14,7 +14,8 @@ Installation pre-requisite (RHEL 6.4 server)
      sudo yum install apache-maven
      sudo mkdir /usr/share/apache-maven/conf/logging
 
-create a file in /etc/profile.d/maven.sh containing
+create a file in /etc/profile.d/maven.sh containing : 
+
      if ! echo ${PATH} | /bin/grep -q /usr/share/apache-maven/bin ; 
      then
           PATH=/usr/share/apache-maven/bin:${PATH}
@@ -48,7 +49,7 @@ create a file in /etc/profile.d/maven.sh containing
 
 7) create a twitter app (see below) and a gmail account
 
-update the init.sh with the correct tokens (system properties §)
+      update the init.sh with the correct tokens (system properties §)
 
 
 8) launch ~/AngryClaim/init.sh
