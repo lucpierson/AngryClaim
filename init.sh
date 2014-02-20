@@ -91,24 +91,24 @@ echo
 unzip -q -o -d target_bpms $AG_SRC_DIR/$BPMS
 
 # install FSW using installation script
-echo Installing FSW
+echo "Installing FSW"
 echo
-java -jar $AG_SRC_DIR/$FSW $AG_DEMO/etc/FSW_ServerInstallScript.xml -variablefile $AG_DEMO/etc/FSW_ServerInstallScript.variables
+java -jar $AG_SRC_DIR/$FSW $AG_DEMO_HOME/etc/FSW_ServerInstallScript.xml -variablefile $AG_DEMO_HOME/etc/FSW_ServerInstallScript.variables
 
 cd ~
 
 
 echo "  - enabling demo accounts logins in application-users.properties file..."
 echo 
-cp $AG_DEMO/etc/application-users.properties $AG_BAM_CONF  || { echo "application-users.properties not in /.etc.... aborting."; exit 1; }
+cp $AG_DEMO_HOME/etc/application-users.properties $AG_BAM_CONF  || { echo "application-users.properties not in /.etc.... aborting."; exit 1; }
 
 echo "  - enabling demo accounts role setup in application-roles.properties file..."
 echo
-cp $AG_DEMO/etc/application-roles.properties $AG_BAM_CONF || { echo "application-roles.properties not in /.etc.... aborting."; exit 1; }
+cp $AG_DEMO_HOME/etc/application-roles.properties $AG_BAM_CONF || { echo "application-roles.properties not in /.etc.... aborting."; exit 1; }
 
 echo "  - enabling management accounts login setup in mgmt-users.properties file..."
 echo
-cp $AG_DEMO/etc/mgmt-users.properties $AG_BAM_CONF || { echo "mgmt-users.properties not in /.etc.... aborting."; exit 1; }
+cp $AG_DEMO_HOME/etc/mgmt-users.properties $AG_BAM_CONF || { echo "mgmt-users.properties not in /.etc.... aborting."; exit 1; }
 
 
 echo "----------------------"
@@ -117,8 +117,8 @@ echo "----------------------"
 
 echo "  - setting up standalone.xml configuration adjustments..."
 echo
-cp  $AG_DEMO/etc/standalone.FSW.xml $AG_FSW_CONF/standalone.xml
-cp  $AG_DEMO/etc/standalone.BAM.xml $AG_BAM_CONF/standalone.xml
+cp  $AG_DEMO_HOME/etc/standalone.FSW.xml $AG_FSW_CONF/standalone.xml
+cp  $AG_DEMO_HOME/etc/standalone.BAM.xml $AG_BAM_CONF/standalone.xml
 
 
 
@@ -154,45 +154,45 @@ echo 'JAVA_OPTS="$JAVA_OPTS -Djboss.socket.binding.port-offset=10000"' >>  $AG_B
 ### Camel-twitter configuration
 mkdir $AG_FSW_HOME/modules/system/layers/soa/org/apache/camel/twitter
 mkdir $AG_FSW_HOME/modules/system/layers/soa/org/apache/camel/twitter/main
-cp $AG_DEMO/etc/modules/camel-twitter/module.xml $AG_FSW_HOME/modules/system/layers/soa/org/apache/camel/twitter/main
-cp $AG_DEMO/etc/modules/camel-twitter/camel-twitter-2.10.0.redhat-60024-1.jar $AG_FSW_HOME/modules/system/layers/soa/org/apache/camel/twitter/main
+cp $AG_DEMO_HOME/etc/modules/camel-twitter/module.xml $AG_FSW_HOME/modules/system/layers/soa/org/apache/camel/twitter/main
+cp $AG_DEMO_HOME/etc/modules/camel-twitter/camel-twitter-2.10.0.redhat-60024-1.jar $AG_FSW_HOME/modules/system/layers/soa/org/apache/camel/twitter/main
 
 ####Installation of the twitter4j module
 mkdir $AG_FSW_HOME/modules/system/layers/soa/org/twitter4j
 mkdir $AG_FSW_HOME/modules/system/layers/soa/org/twitter4j/main
-cp $AG_DEMO/etc/modules/twitter4j/module.xml $AG_FSW_HOME/modules/system/layers/soa/org/twitter4j/main
-cp $AG_DEMO/installs/twitter4j-core-3.0.5.jar $AG_FSW_HOME/modules/system/layers/soa/org/twitter4j/main
-cp $AG_DEMO/installs/twitter4j-stream-3.0.5.jar $AG_FSW_HOME/modules/system/layers/soa/org/twitter4j/main
+cp $AG_DEMO_HOME/etc/modules/twitter4j/module.xml $AG_FSW_HOME/modules/system/layers/soa/org/twitter4j/main
+cp $AG_DEMO_HOME/installs/twitter4j-core-3.0.5.jar $AG_FSW_HOME/modules/system/layers/soa/org/twitter4j/main
+cp $AG_DEMO_HOME/installs/twitter4j-stream-3.0.5.jar $AG_FSW_HOME/modules/system/layers/soa/org/twitter4j/main
 
 # copy CRM MOK file
-cp $AG_DEMO/etc/crm/crm.properties $AG_FSW_HOME/standalone/configuration/
+cp $AG_DEMO_HOME/etc/crm/crm.properties $AG_FSW_HOME/standalone/configuration/
 
 # create and copy mysql jar dependences files on FSW
 mkdir $AG_FSW_HOME/modules/system/layers/base/com/mysql
 mkdir $AG_FSW_HOME/modules/system/layers/base/com/mysql/main
 ln -s /usr/share/java/mysql-connector-java.jar $AG_FSW_HOME/modules/system/layers/base/com/mysql/main/mysql-connector-java.jar
-cp $AG_DEMO/etc/mysql/module.xml $AG_FSW_HOME/modules/system/layers/base/com/mysql/main
+cp $AG_DEMO_HOME/etc/mysql/module.xml $AG_FSW_HOME/modules/system/layers/base/com/mysql/main
 
 # create and copy mysql jar dependences files on BAM
 mkdir $AG_BAM_HOME/modules/system/layers/base/com/mysql
 mkdir $AG_BAM_HOME/modules/system/layers/base/com/mysql/main
 ln -s /usr/share/java/mysql-connector-java.jar $AG_BAM_HOME/modules/system/layers/base/com/mysql/main/mysql-connector-java.jar
-cp $AG_DEMO/etc/mysql/module.xml $AG_BAM_HOME/modules/system/layers/base/com/mysql/main
+cp $AG_DEMO_HOME/etc/mysql/module.xml $AG_BAM_HOME/modules/system/layers/base/com/mysql/main
 
 
 
 # deployments FSW apps
 deploy  web-service : 
-    cp $AG_DEMO/crm-service/target/crm-service.war $AG_FSW_HOME/standalone/deployments/
+    cp $AG_DEMO_HOME/crm-service/target/crm-service.war $AG_FSW_HOME/standalone/deployments/
 deploy le swityard
-    cp $AG_DEMO/switchyard-ear/target/switchyard-angrytweet.ear $AG_FSW_HOME/standalone/deployments/
+    cp $AG_DEMO_HOME/switchyard-ear/target/switchyard-angrytweet.ear $AG_FSW_HOME/standalone/deployments/
 
 
 echo "Before FSW start, update of the CRM users should be done in" 
 echo "            "  $AG_FSW_HOME/standalone/configuration/crm.properties
 echo " "
 echo "After BAM Start, import the following file into the BAM Workbench"
-echo "            "  $AG_DEMO/etc/kpiExport_76041004.xml
+echo "            "  $AG_DEMO_HOME/etc/kpiExport_76041004.xml
 echo " "
 echo "You can now start FSW  with $AG_FSW_HOME/bin/standalone.sh "
 echo "               and BAM with $AG_BAM_HOME/bin/standalone.sh "
