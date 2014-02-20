@@ -199,8 +199,7 @@ echo "            http://localhost:18080/dashbuilder/workspace/en/AngryClaimShow
 #    admin / redhat123@
 #    btic  / redhat123@
 
-
-echo "$PRODUCT $VERSION $DEMO Setup Complete. Have Fun  with Fuse Service Works"
+echo "$PRODUCT $VERSION $DEMO Setup Complete."
 echo
 
 
