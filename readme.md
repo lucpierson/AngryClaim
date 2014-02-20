@@ -48,7 +48,7 @@ create a file in /etc/profile.d/maven.sh containing
 
 7) create a twitter app (see below) and a gmail account
 
-update the init.sh with the correct token 
+update the init.sh with the correct tokens (fixed variables §)
 
 
 8) launch ~/AngryClaim/init.sh
