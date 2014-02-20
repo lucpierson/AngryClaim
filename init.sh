@@ -9,15 +9,6 @@ AG_FSW_HOME=$AG_DEMO_HOME/target_fws/jboss-eap-6.1
 AG_FSW_CONF=$AG_FSW_HOME/standalone/configuration/
 AG_BAM_HOME=$AG_DEMO_HOME/target_bpms/jboss-eap-6.1
 AG_BAM_CONF=$AG_BAM_HOME/standalone/configuration/
-AG_consumerKey="RKSAz48dn9NPNNEfPAntow"
-AG_consumerSecret="h3exEYiVO5JVTG15vb1aGcS9t2FGAQiwTVLV0BgE"
-AG_accessToken="2325112519-3qxgj7OrCb3aCXex2dxlpSIpRWoXhgZXSWR8uRC"
-AG_accessTokenSecret="C3izmkk1Wa2DC2Gwst3nbvOZWozoSgLLfqZYffAKRgHyG"
-AG_sinceId=1
-AG_csvInputDir=$AG_DEMO_HOME/etc/csv/demo/
-AG_emailserverhost="smtps://smtp.gmail.com:465"
-AG_emailserverusername="angryClaim@gmail.com"
-AG_emailserverpassword="AngryCla1m"
 EAP=jboss-eap-6.1.1.zip
 BPMS=jboss-bpms-6.0.0.GA-redhat-1-deployable-eap6.x.zip
 FSW=jboss-fsw-installer-6.0.0.GA-redhat-4.jar
@@ -39,6 +30,20 @@ echo "##  ${PROJECT} "
 echo "##                                                             ##"   
 echo "#################################################################"
 echo
+
+echo "creating fixed variables"
+echo
+sed -i  'i/# AngryClaim demo variables' ~/.bash_profile
+sed -i  'i/export AG_consumerKey="RKSAz48dn9NPNNEfPAntow"' ~/.bash_profile
+sed -i  'i/AG_consumerSecret="h3exEYiVO5JVTG15vb1aGcS9t2FGAQiwTVLV0BgE"' ~/.bash_profile
+sed -i  'i/AG_accessToken="2325112519-3qxgj7OrCb3aCXex2dxlpSIpRWoXhgZXSWR8uRC"' ~/.bash_profile
+sed -i  'i/AG_accessTokenSecret="C3izmkk1Wa2DC2Gwst3nbvOZWozoSgLLfqZYffAKRgHyG"' ~/.bash_profile
+sed -i  'i/AG_sinceId=1' ~/.bash_profile
+sed -i  'i/AG_csvInputDir=$AG_DEMO_HOME/etc/csv/demo/' ~/.bash_profile
+sed -i  'i/AG_emailserverhost="smtps://smtp.gmail.com:465"' ~/.bash_profile
+sed -i  'i/AG_emailserverusername="angryClaim@gmail.com"' ~/.bash_profile
+sed -i  'i/AG_emailserverpassword=""' ~/.bash_profile
+
 
 command -v mvn -q >/dev/null 2>&1 || { echo >&2 "Maven is required but not installed yet... aborting."; exit 1; }
 
