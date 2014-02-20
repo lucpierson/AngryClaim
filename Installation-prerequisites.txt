@@ -1,0 +1,28 @@
+on RHEL 6.4 (Server or Workstation), connected to subscriptions
+
+
+1) Install MAVEN
+sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+
+sudo yum install apache-maven
+sudo mkdir /usr/share/apache-maven/conf/logging
+
+create a file in /etc/profile.d/maven.sh containing
+# update path with maven link
+if ! echo ${PATH} | /bin/grep -q /usr/share/apache-maven/bin ; 
+then
+    PATH=/usr/share/apache-maven/bin:${PATH}
+fi 
+
+2) Install MYSQL
+sudo yum install mysql-server
+sudo yum install mysql-connector-java
+sudo chkconfig mysqld on
+
+3) Install GIT
+sudo yum install git
+
+4) Reboot
+
+
+
