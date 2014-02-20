@@ -34,16 +34,16 @@ echo
 
 echo "creating system variables"
 echo
-echo "# AngryClaim demo variables" >  ~/.bash_profile
-echo 'export AG_consumerKey="RKSAz48dn9NPNNEfPAntow"' > ~/.bash_profile
-echo 'export AG_consumerSecret="h3exEYiVO5JVTG15vb1aGcS9t2FGAQiwTVLV0BgE"' > ~/.bash_profile
-echo 'export AG_accessToken="2325112519-3qxgj7OrCb3aCXex2dxlpSIpRWoXhgZXSWR8uRC"' > ~/.bash_profile
-echo 'export AG_accessTokenSecret="C3izmkk1Wa2DC2Gwst3nbvOZWozoSgLLfqZYffAKRgHyG"' > ~/.bash_profile
-echo 'export AG_sinceId=1' > ~/.bash_profile
-echo 'export AG_csvInputDir=$AG_DEMO_HOME/etc/csv/demo/' > ~/.bash_profile
-echo 'export AG_emailserverhost="smtps://smtp.gmail.com:465"' > ~/.bash_profile
-echo 'export AG_emailserverusername="angryClaim@gmail.com"' > ~/.bash_profile
-echo 'export AG_emailserverpassword=""' > ~/.bash_profile
+echo "# AngryClaim demo variables" >>  ~/.bash_profile
+echo 'export AG_consumerKey="RKSAz48dn9NPNNEfPAntow"' >> ~/.bash_profile
+echo 'export AG_consumerSecret="h3exEYiVO5JVTG15vb1aGcS9t2FGAQiwTVLV0BgE"' >> ~/.bash_profile
+echo 'export AG_accessToken="2325112519-3qxgj7OrCb3aCXex2dxlpSIpRWoXhgZXSWR8uRC"' >> ~/.bash_profile
+echo 'export AG_accessTokenSecret="C3izmkk1Wa2DC2Gwst3nbvOZWozoSgLLfqZYffAKRgHyG"' >> ~/.bash_profile
+echo 'export AG_sinceId=1' >> ~/.bash_profile
+echo 'export AG_csvInputDir=$AG_DEMO_HOME/etc/csv/demo/' >> ~/.bash_profile
+echo 'export AG_emailserverhost="smtps://smtp.gmail.com:465"' >> ~/.bash_profile
+echo 'export AG_emailserverusername="angryClaim@gmail.com"' >> ~/.bash_profile
+echo 'export AG_emailserverpassword=""' >> ~/.bash_profile
 
 
 command -v mvn -q >/dev/null 2>&1 || { echo >&2 "Maven is required but not installed yet... aborting."; exit 1; }
@@ -133,22 +133,22 @@ echo "----------------------"
 
 echo "  - additional options  in FSW standalone.conf..."
 echo
-echo "# AngryClaim options for Twitter and gmail account" > $AG_FSW_HOME/bin/standalone.conf
-echo 'JAVA_OPTS="$JAVA_OPTS -DconsumerKey=$AG_consumerKey"' > $AG_FSW_HOME/bin/standalone.conf
-echo 'JAVA_OPTS="$JAVA_OPTS -DconsumerSecret=$AG_consumerSecret"' > $AG_FSW_HOME/bin/standalone.conf
-echo 'JAVA_OPTS="$JAVA_OPTS -DaccessToken=$AG_accessToken"' > $AG_FSW_HOME/bin/standalone.conf
-echo 'JAVA_OPTS="$JAVA_OPTS -DaccessTokenSecret=$AG_accessTokenSecret"' > $AG_FSW_HOME/bin/standalone.conf
-echo 'JAVA_OPTS="$JAVA_OPTS -DsinceId=$AG_sinceId"' > $AG_FSW_HOME/bin/standalone.conf
-echo 'JAVA_OPTS="$JAVA_OPTS -DcsvInputDir=$AG_csvInputDir"' > $AG_FSW_HOME/bin/standalone.conf
-echo 'JAVA_OPTS="$JAVA_OPTS -Demail.server.host=$AG_emailserverhost"' > $AG_FSW_HOME/bin/standalone.conf
-echo 'JAVA_OPTS="$JAVA_OPTS -Demail.server.username=$AG_emailserverusername"' > $AG_FSW_HOME/bin/standalone.conf
-echo 'JAVA_OPTS="$JAVA_OPTS -Demail.server.password=$AG_emailserverpassword"' > $AG_FSW_HOME/bin/standalone.conf
+echo "# AngryClaim options for Twitter and gmail account" >> $AG_FSW_HOME/bin/standalone.conf
+echo 'JAVA_OPTS="$JAVA_OPTS -DconsumerKey=$AG_consumerKey"' >> $AG_FSW_HOME/bin/standalone.conf
+echo 'JAVA_OPTS="$JAVA_OPTS -DconsumerSecret=$AG_consumerSecret"' >> $AG_FSW_HOME/bin/standalone.conf
+echo 'JAVA_OPTS="$JAVA_OPTS -DaccessToken=$AG_accessToken"' >> $AG_FSW_HOME/bin/standalone.conf
+echo 'JAVA_OPTS="$JAVA_OPTS -DaccessTokenSecret=$AG_accessTokenSecret"' >> $AG_FSW_HOME/bin/standalone.conf
+echo 'JAVA_OPTS="$JAVA_OPTS -DsinceId=$AG_sinceId"' >> $AG_FSW_HOME/bin/standalone.conf
+echo 'JAVA_OPTS="$JAVA_OPTS -DcsvInputDir=$AG_csvInputDir"' >> $AG_FSW_HOME/bin/standalone.conf
+echo 'JAVA_OPTS="$JAVA_OPTS -Demail.server.host=$AG_emailserverhost"' >> $AG_FSW_HOME/bin/standalone.conf
+echo 'JAVA_OPTS="$JAVA_OPTS -Demail.server.username=$AG_emailserverusername"' >> $AG_FSW_HOME/bin/standalone.conf
+echo 'JAVA_OPTS="$JAVA_OPTS -Demail.server.password=$AG_emailserverpassword"' >> $AG_FSW_HOME/bin/standalone.conf
 
 
 echo "  - additional options  in BAM standalone.conf..."
 echo
-echo "# AngryClaim options add offset 100 - for demo BAM on business-central" > $AG_BAM_HOME/bin/standalone.conf
-echo 'JAVA_OPTS="$JAVA_OPTS -Djboss.socket.binding.port-offset=10000"' >  $AG_BAM_HOME/bin/standalone.conf
+echo "# AngryClaim options add offset 100 - for demo BAM on business-central" >> $AG_BAM_HOME/bin/standalone.conf
+echo 'JAVA_OPTS="$JAVA_OPTS -Djboss.socket.binding.port-offset=10000"' >>  $AG_BAM_HOME/bin/standalone.conf
 
 
 ### Camel-twitter configuration
