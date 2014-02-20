@@ -1,6 +1,53 @@
 AngryTweet Fuse Service Works Demo
 ==================================
 
+*******************************************
+********* IN CONSTRUCTION             *****
+*******************************************
+
+Installation pre-requisite
+--------------------------
+on RHEL 6.4 (Server or Workstation)
+
+1) Install MAVEN
+sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+
+sudo yum install apache-maven
+sudo mkdir /usr/share/apache-maven/conf/logging
+
+create a file in /etc/profile.d/maven.sh containing
+# update path with maven link
+if ! echo ${PATH} | /bin/grep -q /usr/share/apache-maven/bin ; 
+then
+    PATH=/usr/share/apache-maven/bin:${PATH}
+fi 
+
+2) Install MYSQL
+sudo yum install mysql-server
+sudo yum install mysql-connector-java
+sudo chkconfig mysqld on
+
+3) Install GIT
+sudo yum install git
+
+4) clone the demo from gitHub
+cd ~
+git clone https://github.com/lucpierson/AngryClaim.git
+
+5) Download required softwares and place them in ~/AngryClaim/installs
+     from Redhat downloads       
+        ==> jboss-fsw-installer-6.0.0.GA-redhat-4.jar 
+        ==> jboss-bpms-6.0.0.GA-redhat-1-deployable-eap6.x.zip
+        ==> jboss-eap-6.1.1.zip
+     from search.maven.org 
+        ==> twitter4j-core-3.0.5.jar
+        ==> twitter4j-stream-3.0.5.jar
+6) Reboot
+
+7) launch ~/AngryClaim/init.sh
+
+
+
 Installation Notes
 ------------------
 
@@ -24,7 +71,7 @@ This can be done from the http://dev.twitter.com/apps page.
 Be sure to grant read and write rights to the application.
 Make note of the customer key and secret, and the access token key and secret.  
 
-### Configuration of SY
+### Configuration of switchyard
 
 In $FSW_HOME/standalone/configuration/standalone.xml, add the following line to the <extensions> section of the switchyard subsystem configuration:
 
@@ -40,7 +87,7 @@ The format of the properties is:
 
 For an example, see etc/crm/crm.properties
 
-### csv file
+### csv file (input for batch example)
 
 The application can take as input a csv file.
 The format of the csv records is:
@@ -48,6 +95,7 @@ The format of the csv records is:
     <id>;<timestamp>;<customer code>;<service>;<comments>;<urgent>
 
 For an example, see etc/csv/csv.txt
+directory scanned by Fuse : etc/csv/demo
 
 ### datasource configuration
 In $FSW_HOME/standalone/configuration/standalone.xml, add a datasource definition, with JNDI name java:jboss/datasources/AngryTweetDS.
@@ -83,3 +131,5 @@ The FSW server needs to be started up with a number of system properties:
 * email.server.host : email server url (example smtps://smtp.gmail.com:465 for gmail)
 * email.server.username : email server user name
 * email.server.password : email server password (note: should not contain characters as ?,&,+ ...) 
+
+
