@@ -33,6 +33,7 @@ sudo yum install git
 4) clone the demo from gitHub
 
 cd ~
+
 git clone https://github.com/lucpierson/AngryClaim.git
 
 5) Download required softwares and place them in ~/AngryClaim/installs
