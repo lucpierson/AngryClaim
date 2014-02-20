@@ -46,7 +46,12 @@ create a file in /etc/profile.d/maven.sh containing
         ==> twitter4j-stream-3.0.5.jar
 6) Reboot
 
-7) launch ~/AngryClaim/init.sh
+7) create a twitter app (see below) and a gmail account
+
+update the init.sh with the correct token 
+
+
+8) launch ~/AngryClaim/init.sh
 
 
 

@@ -87,7 +87,7 @@ unzip -q -o -d target_bpms $AG_SRC_DIR/$BPMS
 # install FSW using installation script
 echo Installing FSW
 echo
-java -jar $AG_SRC_DIR/FSW $AG_DEMO/etc/FSW_ServerInstallScript.xml -pwdfile $AG_DEMO/etc/FSW_ServerInstallScript.variables
+java -jar $AG_SRC_DIR/FSW $AG_DEMO/etc/FSW_ServerInstallScript.xml -variablefile $AG_DEMO/etc/FSW_ServerInstallScript.variables
 
 cd ~
 
