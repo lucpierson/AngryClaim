@@ -31,7 +31,7 @@ echo "##                                                             ##"
 echo "#################################################################"
 echo
 
-echo "creating fixed variables"
+echo "creating system variables"
 echo
 sed -i  'i/# AngryClaim demo variables' ~/.bash_profile
 sed -i  'i/export AG_consumerKey="RKSAz48dn9NPNNEfPAntow"' ~/.bash_profile
@@ -92,7 +92,7 @@ unzip -q -o -d target_bpms $AG_SRC_DIR/$BPMS
 # install FSW using installation script
 echo Installing FSW
 echo
-java -jar $AG_SRC_DIR/FSW $AG_DEMO/etc/FSW_ServerInstallScript.xml -variablefile $AG_DEMO/etc/FSW_ServerInstallScript.variables
+java -jar $AG_SRC_DIR/$FSW $AG_DEMO/etc/FSW_ServerInstallScript.xml -variablefile $AG_DEMO/etc/FSW_ServerInstallScript.variables
 
 cd ~
 
