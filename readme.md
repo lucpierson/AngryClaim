@@ -1,9 +1,9 @@
 AngryTweet Fuse Service Works Demo
 ==================================
 
-*******************************************
-********* IN CONSTRUCTION             *****
-*******************************************
+# *******************************************
+# ********* IN CONSTRUCTION             *****
+# *******************************************
 
 Installation pre-requisite
 --------------------------
@@ -16,7 +16,6 @@ sudo yum install apache-maven
 sudo mkdir /usr/share/apache-maven/conf/logging
 
 create a file in /etc/profile.d/maven.sh containing
-# update path with maven link
 if ! echo ${PATH} | /bin/grep -q /usr/share/apache-maven/bin ; 
 then
     PATH=/usr/share/apache-maven/bin:${PATH}
