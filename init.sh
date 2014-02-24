@@ -212,8 +212,11 @@ echo " "
 echo "Before FSW re-start, update of the CRM users  in" 
 echo "            "  $AG_FSW_HOME "/standalone/configuration/crm.properties"
 echo " "
-echo "After BAM Start, import the following file into the BAM Workbench"
-echo "            "  $AG_DEMO_HOME "/etc/kpiExport_76041004.xml"
+echo "After BAM Start, in the dashboard configuration, create"
+echo "    create datatsource as  JNDI , name=AngryClamDB  jndi=java:jboss/datasources/AngryTweetDS" 
+echo "    and import the following file into the BAM Workbench"
+echo "            "  $AG_DEMO_HOME "/etc/BAM/kpiExport_76041004.xml"
+echo "            "  $AG_DEMO_HOME "/etc/BAM/export_workspace.cex
 echo " "
 echo "You can now start FSW  with $AG_FSW_HOME/bin/standalone.sh "
 echo " "
@@ -226,7 +229,14 @@ echo
 echo "BAM users  are : "
 echo "#    admin / redhat123@"
 echo "#    btic  / redhat123@"
-echo 
+echo
+# luc / luc9999ç
+# add in BAM/standalone/configuration/application-user : luc=212420d26951218a06cf95ab5f7cd8ca 
+
+# create dataProvider : actionsFromSource
+#         select * from ticket order by channel_in
+# create dataProvider : cbyc_sup1
+#    select customer, area_code,compteur from(  select customer, area_code, count(*) as compteur  from (select customer,area_code, urgent  from ( select customer, channel_in, area_code, urgent from  angrytweet.ticket group by customer,channel_in order by customer, channel_in) AS T) as T2  group by customer) as T3 where compteur>1;
 echo "Setup Complete. Have Fun  with Fuse Service Works"
 echo " the Authors :  ${AUTHORS}"
 echo
