@@ -160,8 +160,9 @@ cp  $AG_DEMO_HOME/etc/standalone.BAM.xml $AG_BAM_CONF/standalone.xml
 
 echo "  - turn off security profile for performance in standalone.conf..."
 echo
-sed -i '' 's/JAVA_OPTS="$JAVA_OPTS -Djava.security.manager/#JAVA_OPTS="$JAVA_OPTS -Djava.security.manager/g' $AG_FSW_HOME/bin/standalone.conf
-sed -i '' 's/JAVA_OPTS="$JAVA_OPTS -Djava.security.manager/#JAVA_OPTS="$JAVA_OPTS -Djava.security.manager/g' $AG_BAM_HOME/bin/standalone.conf
+sed -i 's|JAVA_OPTS=\"$JAVA_OPTS -Djava.security.manager|#JAVA_OPTS=\"$JAVA_OPTS -Djava.security.manager|g' $AG_FSW_HOME/bin/standalone.conf
+sed -i 's|JAVA_OPTS=\"$JAVA_OPTS -Djava.security.manager|#JAVA_OPTS=\"$JAVA_OPTS -Djava.security.manager|g' $AG_BAM_HOME/bin/standalone.conf
+
 
 echo "----------------------"
 
@@ -216,12 +217,12 @@ cp $AG_DEMO_HOME/etc/mysql/module.xml $AG_BAM_HOME/modules/system/layers/base/co
 
 
 # deployments FSW apps
-deploy  web-service : 
+#deploy  web-service : 
     cp $AG_DEMO_HOME/crm-service/target/crm-service.war $AG_FSW_HOME/standalone/deployments/
-deploy le swityard
+#deploy le swityard
     cp $AG_DEMO_HOME/switchyard-ear/target/switchyard-angrytweet.ear $AG_FSW_HOME/standalone/deployments/
 
-
+echo
 echo "Before FSW start, update of the CRM users should be done in" 
 echo "            "  $AG_FSW_HOME/standalone/configuration/crm.properties
 echo " "
@@ -234,10 +235,11 @@ echo " "
 echo "URL to lauch BAM is "
 echo "            http://localhost:18080/dashbuilder/workspace/en/AngryClaimShowcase" 
 
-
-# echo BAM users : 
-#    admin / redhat123@
-#    btic  / redhat123@
+echo
+echo "BAM users : "
+echo "#    admin / redhat123@"
+echo "#    btic  / redhat123@"
+echo 
 
 
 echo "$PRODUCT $VERSION $DEMO Setup Complete. Have Fun  with Fuse Service Works"
