@@ -161,6 +161,7 @@ echo "  - additional options  in BAM standalone.conf..."
 echo
    echo "# AngryClaim options add offset 100 - for demo BAM on business-central" >> $AG_BAM_HOME/bin/standalone.conf
    echo 'JAVA_OPTS="$JAVA_OPTS -Djboss.socket.binding.port-offset=10000"' >>  $AG_BAM_HOME/bin/standalone.conf
+   sed -i 's|</dependencies>|<module name="com.mysql" />\n</dependencies>|g ' $AG_BAM_HOME/standalone/deployments/dashbuilder.war/WEB-INF/jboss-deployment-structure.xml
 
 
 ### Camel-twitter configuration
@@ -191,6 +192,11 @@ echo
    mkdir -p                                            ~/.m2/repository/org/apache/camel/camel-twitter/2.10.0.redhat-60024-1
    cp    $AG_DEMO_HOME/etc/modules/camel-twitter/cam*  ~/.m2/repository/org/apache/camel/camel-twitter/2.10.0.redhat-60024-1
    cd    $AG_DEMO_HOME
+
+# update BAM persistency Dialect
+gedit /home/lpierson/bpms-generic-load-demo/target/jboss-eap-6.1/standalone/deployments/business-central.war/WEB-INF/classes/META-INF/persistence.xml
+ change from
+sed -i 's|<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />|<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>|g' $AG_BAM_HOME/standalone/deployments/business-central.war/WEB-INF/classes/META-INF/persistence.xml
 
 
 
