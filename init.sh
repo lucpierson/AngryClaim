@@ -86,16 +86,50 @@ echo
 unzip -q -d target_bpms $AG_SRC_DIR/$EAP
 
 # Unzip the required files from JBoss product deployable.
-echo Unpacking $PRODUCT $VERSION...
+echo "Unpacking BPMS"
 echo
 unzip -q -o -d target_bpms $AG_SRC_DIR/$BPMS
+cd ~
+
+#maven verif
+echo "Verification Maven"
+if [[ -r ~/.m2/settings.xml ]]; then
+		echo maven XML settings are present...
+		echo
+else
+		echo "Need to verify your maven installation "
+		echo "   1° in a prompt, type #mvn"
+		echo "   2° verify the presence of ~/.m2/settings.xml"
+		echo "bye for now..."
+		exit
+fi
 
 # install FSW using installation script
 echo "Installing FSW"
-echo
-java -jar $AG_SRC_DIR/$FSW $AG_DEMO_HOME/etc/FSW_ServerInstallScript.xml -variablefile $AG_DEMO_HOME/etc/FSW_ServerInstallScript.variables
+echo "     $AG_SRC_DIR/$FSW :" $AG_SRC_DIR/$FSW
+echo "     $AG_DEMO_HOME/etc/FSW_ServerInstallScript.xml : " $AG_SRC_DIR/$FSW $AG_DEMO_HOME/etc/FSW_ServerInstallScript.xml
+echo "     $AG_DEMO_HOME/etc/FSW_ServerInstallScript.variables : " $AG_DEMO_HOME/etc/FSW_ServerInstallScript.xml.variables
+
+if [[ -r $AG_DEMO_HOME/etc/FSW_ServerInstallScript.xml && -r $AG_DEMO_HOME/etc/FSW_ServerInstallScript.xml.variables ]]; then
+		echo XML scripts are present...
+                cp $AG_DEMO_HOME/etc/FSW_ServerInstallScript.xml $AG_DEMO_HOME/etc/FSW_ServerInstallScript.xml.save --force
+                sed -i "s|REPERTOIRE|$AG_DEMO_HOME|" $AG_DEMO_HOME/etc/FSW_ServerInstallScript.xml
+                # SED : substiture string "REPERTOIRE" with $AG_DEMO_HOME variable
+                cd $AG_DEMO_HOME
+                java -jar $AG_SRC_DIR/$FSW $AG_DEMO_HOME/etc/FSW_ServerInstallScript.xml -variablefile $AG_DEMO_HOME/etc/FSW_ServerInstallScript.xml.variables
+		echo
+else
+		echo "Need to verify that FSW XML installation sript is named as FSW_ServerInstallScript.xml"
+		echo "and placed in the " $AG_SRC_DIR/$FSW ll$AG_DEMO_HOME "/etc directory "
+		echo "bye for now..."
+		exit
+fi
+
+
 
 cd ~
+
+
 
 
 echo "  - enabling demo accounts logins in application-users.properties file..."
