@@ -220,6 +220,12 @@ echo
 # update BAM persistency Dialect
 sed -i 's|<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />|<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>|g' $AG_BAM_HOME/standalone/deployments/business-central.war/WEB-INF/classes/META-INF/persistence.xml
 
+echo
+echo "creating BAM Users"
+AG_BAM_HOME/bin/add-user.sh admin redhat123@
+
+
+echo
 echo "Creating Launchers  : /FSW_Launch.sh and /BAM_Launch.sh"
 
 echo "#!/bin/sh" >> $AG_DEMO_HOME/FSW_Launch.sh
