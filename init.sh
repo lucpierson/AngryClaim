@@ -194,10 +194,18 @@ echo
    cd    $AG_DEMO_HOME
 
 # update BAM persistency Dialect
-gedit /home/lpierson/bpms-generic-load-demo/target/jboss-eap-6.1/standalone/deployments/business-central.war/WEB-INF/classes/META-INF/persistence.xml
- change from
 sed -i 's|<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />|<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>|g' $AG_BAM_HOME/standalone/deployments/business-central.war/WEB-INF/classes/META-INF/persistence.xml
 
+echo "Creating Launchers  : /FSW_Launch.sh and /BAM_Launch.sh"
+
+echo "#Launch Fuse Service works for Demo AngryClaim" >> $AG_DEMO_HOME/FSW_Launch.sh
+cat ./etc/setSinceId.txt >> $AG_DEMO_HOME/FSW_Launch.sh
+echo $AG_FSW_HOME/bin/standalone.sh >> $AG_DEMO_HOME/FSW_Launch.sh
+
+echo "#Launch BPM-Suite BAM for Demo AngryClaim"  >> $AG_DEMO_HOME/BAM_Launch.sh
+echo $AG_BAM_HOME/bin/standalone.sh >> $AG_DEMO_HOME/BAM_Launch.sh
+
+chmod +x BAM_Launch.sh FSW_Launch.sh
 
 
 echo
@@ -218,11 +226,11 @@ echo "    and import the following file into the BAM Workbench"
 echo "            "  $AG_DEMO_HOME "/etc/BAM/kpiExport_76041004.xml"
 echo "            "  $AG_DEMO_HOME "/etc/BAM/export_workspace.cex"
 echo " "
-echo "You can now start FSW  with $AG_FSW_HOME/bin/standalone.sh "
+echo "You can now start FSW  with FSW_Launch.sh "
 echo " "
-echo "               and BAM with $AG_BAM_HOME/bin/standalone.sh "
+echo "               and BAM with BAM_Launch.sh "
 echo " "
-echo "URL to lauch BAM is "
+echo "URL to launch BAM is "
 echo "            http://localhost:18080/dashbuilder/workspace/en/AngryClaimShowcase" 
 echo 
 echo
@@ -231,13 +239,6 @@ echo "#    admin / redhat123@"
 echo "#    btic  / redhat123@"
 echo
 
-echo "Creating Launchers  : /FSW_Launch.sh and /BAM_Launch.sh"
-echo "#Launch Fuse Service works for Demo AngryClaim" >> $AG_DEMO_HOME/FSW_Launch.sh
-cat ./etc/setSinceId.txt >> $AG_DEMO_HOME/FSW_Launch.sh
-echo $AG_FSW_HOME/bin/standalone.sh >> $AG_DEMO_HOME/FSW_Launch.sh
-echo "#Launch BPM-Suite BAM for Demo AngryClaim"  >> $AG_DEMO_HOME/BAM_Launch.sh
-echo $AG_BAM_HOME/bin/standalone.sh >> $AG_DEMO_HOME/BAM_Launch.sh
-chmod +x BAM_Launch.sh FSW_Launch.sh
 
 
 
@@ -248,6 +249,10 @@ chmod +x BAM_Launch.sh FSW_Launch.sh
 #         select * from ticket order by channel_in
 # create dataProvider : cbyc_sup1
 #    select customer, area_code,compteur from(  select customer, area_code, count(*) as compteur  from (select customer,area_code, urgent  from ( select customer, channel_in, area_code, urgent from  angrytweet.ticket group by customer,channel_in order by customer, channel_in) AS T) as T2  group by customer) as T3 where compteur>1;
+echo
+echo
+echo
+echo
 echo "Setup Complete. Have Fun  with Fuse Service Works"
 echo " the Authors :  ${AUTHORS}"
 echo
