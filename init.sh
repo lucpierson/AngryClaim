@@ -188,6 +188,11 @@ echo
    sed -i 's|</dependencies>|<module name="com.mysql" />\n</dependencies>|g ' $AG_BAM_HOME/standalone/deployments/dashbuilder.war/WEB-INF/jboss-deployment-structure.xml
 
 
+### Create demo directory for input CSV files
+   mkdir -p  $AG_csvInputDir
+
+
+
 ### Camel-twitter configuration
    mkdir -p                                                                           $AG_FSW_HOME/modules/system/layers/soa/org/apache/camel/twitter/main
    cp $AG_DEMO_HOME/etc/modules/camel-twitter/module.xml                              $AG_FSW_HOME/modules/system/layers/soa/org/apache/camel/twitter/main
@@ -222,8 +227,8 @@ sed -i 's|<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dial
 
 echo
 echo "creating BAM Users"
-AG_BAM_HOME/bin/add-user.sh admin redhat123@
-
+$AG_BAM_HOME/bin/add-user.sh -a admin redhat123@
+echo 'admin=analyst,admin' >> $AG_BAM_CONF/application-roles.properties
 
 echo
 echo "Creating Launchers  : /FSW_Launch.sh and /BAM_Launch.sh"
@@ -264,8 +269,11 @@ echo "Before FSW re-start, update of the CRM users  in"
 echo "            "  $AG_FSW_HOME/standalone/configuration/crm.properties
 echo " "
 echo "After BAM Start, in the dashboard configuration, create"
-echo "    create datatsource as  JNDI , name=AngryClamDB  jndi=java:jboss/datasources/AngryTweetDS" 
-echo "    and import the following file into the BAM Workbench"
+echo "    create externalConnection JNDI : name=AngryClamDB  jndi=java:jboss/datasources/AngryTweetDS"
+echo 
+echo "    create dataProvider : name=AngryClaimTickets, select * from ticket order by channel_in"
+echo "    create dataProvider : name=AngryClaimVeryAngryUsers, select customer, area_code,compteur from(  select customer, area_code, count(*) as compteur  from (select customer,area_code, urgent  from ( select customer, channel_in, area_code, urgent from  angrytweet.ticket group by customer,channel_in order by customer, channel_in) AS T) as T2  group by customer) as T3 where compteur>1;"
+echo "    and import the following file into the BAM workspace"
 echo "            "  $AG_DEMO_HOME/etc/BAM/kpiExport_76041004.xml
 echo "            "  $AG_DEMO_HOME/etc/BAM/export_workspace.cex
 echo " "
