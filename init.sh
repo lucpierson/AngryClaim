@@ -52,35 +52,41 @@ echo
 echo "creating system variables"
 echo
 echo "# AngryClaim demo variables" >>  ~/.bash_profile
-echo 'export AG_consumerKey=' $AG_consumerKey >> ~/.bash_profile
-echo 'export AG_consumerSecret=' $AG_consumerSecret >> ~/.bash_profile
-echo 'export AG_accessToken=' $AG_accessToken >> ~/.bash_profile
-echo 'export AG_accessTokenSecret=' $AG_accessTokenSecret >> ~/.bash_profile
-echo 'export AG_sinceId=' $AG_sinceId >> ~/.bash_profile
-echo 'export AG_csvInputDir=' $AG_csvInputDir >> ~/.bash_profile
-echo 'export AG_emailserverhost=' $AG_emailserverhost >> ~/.bash_profile
-echo 'export AG_emailserverusername=' $AG_emailserverusername >> ~/.bash_profile
-echo 'export AG_emailserverpassword=' $AG_emailserverpassword >> ~/.bash_profile
+echo 'export AG_consumerKey='$AG_consumerKey >> ~/.bash_profile
+echo 'export AG_consumerSecret='$AG_consumerSecret >> ~/.bash_profile
+echo 'export AG_accessToken='$AG_accessToken >> ~/.bash_profile
+echo 'export AG_accessTokenSecret='$AG_accessTokenSecret >> ~/.bash_profile
+echo 'export AG_sinceId='$AG_sinceId >> ~/.bash_profile
+echo 'export AG_csvInputDir='$AG_csvInputDir >> ~/.bash_profile
+echo 'export AG_emailserverhost='$AG_emailserverhost >> ~/.bash_profile
+echo 'export AG_emailserverusername='$AG_emailserverusername >> ~/.bash_profile
+echo 'export AG_emailserverpassword='$AG_emailserverpassword >> ~/.bash_profile
 
 
-echo "verifying MVN installation"
+echo "verifying  and updating MVN installation"
 command -v mvn -q >/dev/null 2>&1 || { echo >&2 "Maven is required but not installed yet... aborting."; exit 1; }
 mv ~/.m2/settings.xml ~/.m2/settings.xml.save
 cp $AG_DEMO_HOME/etc/mvn_config/settings.xml ~/.m2/settings.xml
+echo
 
 
-
+echo "verifying that MySQM is installed and started"
 AG_FICHIER=/usr/share/java/mysql-connector-java.jar
 test -L "$AG_FICHIER" || test -f "$AG_FICHIER" || { echo "MySQL is required but not installed yet. Please launch yum install mysql* .... aborting."; exit 1; }
 service mysqld status ||  { echo "mysql server is not up.... aborting."; exit 1; }
+echo
 
+echo "verifying that JDK is installed"
 javac -version>/dev/null || { echo "java jdk is required but not installed yet. .... aborting."; exit 1; }
+echo
 
+echo "creating MySQL user and schemas"
 mysql -u root -h localhost -e"CREATE USER 'jboss'@'localhost' IDENTIFIED BY 'jboss';"
 mysql -u root -h localhost -e"GRANT ALL PRIVILEGES ON * . * TO 'jboss'@'localhost';"
 mysql -u root -h localhost -e"FLUSH PRIVILEGES;"
 mysql -u jboss -pjboss -h localhost -e"create schema angrytweet;"
 mysql -u jboss -pjboss -h localhost -e"create schema bpmsdemo;" || { echo "Error in creating required databases. Please check and try again....."; exit 1; }
+echo
 
 # make some checks first before proceeding.	
 if [[ -r $AG_SRC_DIR/$EAP || -L $AG_SRC_DIR/$EAP ]]; then
@@ -218,16 +224,15 @@ echo "Creating Launchers  : /FSW_Launch.sh and /BAM_Launch.sh"
 
 echo "#Launch Fuse Service works for Demo AngryClaim" >> $AG_DEMO_HOME/FSW_Launch.sh
 cat ./etc/setSinceId.txt >> $AG_DEMO_HOME/FSW_Launch.sh
-echo "# AngryClaim demo variables" >>  $AG_DEMO_HOME/FSW_Launch.sh
-echo 'export AG_consumerKey=' $AG_consumerKey >> $AG_DEMO_HOME/FSW_Launch.sh
-echo 'export AG_consumerSecret=' $AG_consumerSecret >> $AG_DEMO_HOME/FSW_Launch.sh
-echo 'export AG_accessToken=' $AG_accessToken >> $AG_DEMO_HOME/FSW_Launch.sh
-echo 'export AG_accessTokenSecret=' $AG_accessTokenSecret >> $AG_DEMO_HOME/FSW_Launch.sh
-echo 'export AG_sinceId=' $AG_sinceId >> $AG_DEMO_HOME/FSW_Launch.sh
-echo 'export AG_csvInputDir=' $AG_csvInputDir >> $AG_DEMO_HOME/FSW_Launch.sh
-echo 'export AG_emailserverhost=' $AG_emailserverhost >> $AG_DEMO_HOME/FSW_Launch.sh
-echo 'export AG_emailserverusername=' $AG_emailserverusername >> $AG_DEMO_HOME/FSW_Launch.sh
-echo 'export AG_emailserverpassword=' $AG_emailserverpassword >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_consumerKey='$AG_consumerKey >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_consumerSecret='$AG_consumerSecret >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_accessToken='$AG_accessToken >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_accessTokenSecret='$AG_accessTokenSecret >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_sinceId='$AG_sinceId >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_csvInputDir='$AG_csvInputDir >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_emailserverhost='$AG_emailserverhost >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_emailserverusername='$AG_emailserverusername >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_emailserverpassword='$AG_emailserverpassword >> $AG_DEMO_HOME/FSW_Launch.sh
 echo $AG_FSW_HOME/bin/standalone.sh >> $AG_DEMO_HOME/FSW_Launch.sh
 
 echo "#Launch BPM-Suite BAM for Demo AngryClaim"  >> $AG_DEMO_HOME/BAM_Launch.sh
@@ -236,7 +241,10 @@ echo $AG_BAM_HOME/bin/standalone.sh >> $AG_DEMO_HOME/BAM_Launch.sh
 chmod +x BAM_Launch.sh FSW_Launch.sh
 
 
-echo
+echo "******************************************************************"
+echo "**     F I N A L    I N S T R U C T I O N S                 ******"
+echo "**                                                          ******"
+echo "******************************************************************"
 echo "Other actions may be very long, please launch them Manually : "
 echo "  1) creation of the deployable applications with maven clean package"
 echo "        mvn clean package  "
@@ -278,6 +286,7 @@ echo
 # create dataProvider : cbyc_sup1
 #    select customer, area_code,compteur from(  select customer, area_code, count(*) as compteur  from (select customer,area_code, urgent  from ( select customer, channel_in, area_code, urgent from  angrytweet.ticket group by customer,channel_in order by customer, channel_in) AS T) as T2  group by customer) as T3 where compteur>1;
 echo
+echo "******************************************************************"
 echo
 echo
 echo
