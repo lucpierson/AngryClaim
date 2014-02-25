@@ -255,13 +255,13 @@ echo "        cp " $AG_DEMO_HOME/switchyard-ear/target/switchyard-angrytweet.ear
 echo " "     
 echo " "
 echo "Before FSW re-start, update of the CRM users  in" 
-echo "            "  $AG_FSW_HOME/standalone/configuration/crm.properties
+echo "            "  $AG_FSW_HOME "/standalone/configuration/crm.properties"
 echo " "
 echo "After BAM Start, in the dashboard configuration, create"
 echo "    create datatsource as  JNDI , name=AngryClamDB  jndi=java:jboss/datasources/AngryTweetDS" 
 echo "    and import the following file into the BAM Workbench"
-echo "            "  $AG_DEMO_HOME/etc/BAM/kpiExport_76041004.xml
-echo "            "  $AG_DEMO_HOME/etc/BAM/export_workspace.cex
+echo "            "  $AG_DEMO_HOME "/etc/BAM/kpiExport_76041004.xml"
+echo "            "  $AG_DEMO_HOME "/etc/BAM/export_workspace.cex"
 echo " "
 echo "You can now start FSW  with FSW_Launch.sh "
 echo " "
