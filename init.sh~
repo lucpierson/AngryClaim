@@ -232,10 +232,9 @@ echo "#    btic  / redhat123@"
 echo
 
 echo "Creating Launchers  : /FSW_Launch.sh and /BAM_Launch.sh"
-echo "#Launch Fuse Service works for Demo AngryClaim" >> $AG_DEMO_HOME/FSW_Launch.sh
 cat ./etc/setSinceId.txt >> $AG_DEMO_HOME/FSW_Launch.sh
 echo $AG_FSW_HOME/bin/standalone.sh >> $AG_DEMO_HOME/FSW_Launch.sh
-echo "#Launch BPM-Suite BAM for Demo AngryClaim"  >> $AG_DEMO_HOME/BAM_Launch.sh
+
 echo $AG_BAM_HOME/bin/standalone.sh >> $AG_DEMO_HOME/BAM_Launch.sh
 chmod +x BAM_Launch.sh FSW_Launch.sh
 
