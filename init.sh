@@ -14,6 +14,23 @@ BPMS=jboss-bpms-6.0.0.GA-redhat-1-deployable-eap6.x.zip
 FSW=jboss-fsw-installer-6.0.0.GA-redhat-4.jar
 VERSION=AngryClaim.V1.1
 
+# TWITTER Application CONF
+AG_consumerKey="RKSAz48dn9NPNNEfPAntow"
+AG_consumerSecret="h3exEYiVO5JVTG15vb1aGcS9t2FGAQiwTVLV0BgE"
+AG_accessToken="2325112519-3qxgj7OrCb3aCXex2dxlpSIpRWoXhgZXSWR8uRC"
+AG_accessTokenSecret="C3izmkk1Wa2DC2Gwst3nbvOZWozoSgLLfqZYffAKRgHyG"
+AG_sinceId=1
+
+# GMAIL SMTP Account configuration
+AG_emailserverhost="smtps://smtp.gmail.com:465"
+AG_emailserverusername="angryClaim@gmail.com"
+AG_emailserverpassword=""
+
+# CSV Directory to Scan
+AG_csvInputDir=$AG_DEMO_HOME/etc/csv/demo/
+
+
+
 # wipe screen.
 clear 
 
@@ -35,15 +52,16 @@ echo
 echo "creating system variables"
 echo
 echo "# AngryClaim demo variables" >>  ~/.bash_profile
-echo 'export AG_consumerKey="RKSAz48dn9NPNNEfPAntow"' >> ~/.bash_profile
-echo 'export AG_consumerSecret="h3exEYiVO5JVTG15vb1aGcS9t2FGAQiwTVLV0BgE"' >> ~/.bash_profile
-echo 'export AG_accessToken="2325112519-3qxgj7OrCb3aCXex2dxlpSIpRWoXhgZXSWR8uRC"' >> ~/.bash_profile
-echo 'export AG_accessTokenSecret="C3izmkk1Wa2DC2Gwst3nbvOZWozoSgLLfqZYffAKRgHyG"' >> ~/.bash_profile
-echo 'export AG_sinceId=1' >> ~/.bash_profile
-echo 'export AG_csvInputDir=$AG_DEMO_HOME/etc/csv/demo/' >> ~/.bash_profile
-echo 'export AG_emailserverhost="smtps://smtp.gmail.com:465"' >> ~/.bash_profile
-echo 'export AG_emailserverusername="angryClaim@gmail.com"' >> ~/.bash_profile
-echo 'export AG_emailserverpassword=""' >> ~/.bash_profile
+echo 'export AG_consumerKey=' $AG_consumerKey >> ~/.bash_profile
+echo 'export AG_consumerSecret=' $AG_consumerSecret >> ~/.bash_profile
+echo 'export AG_accessToken=' $AG_accessToken >> ~/.bash_profile
+echo 'export AG_accessTokenSecret=' $AG_accessTokenSecret >> ~/.bash_profile
+echo 'export AG_sinceId=' $AG_sinceId >> ~/.bash_profile
+echo 'export AG_csvInputDir=' $AG_csvInputDir >> ~/.bash_profile
+echo 'export AG_emailserverhost=' $AG_emailserverhost >> ~/.bash_profile
+echo 'export AG_emailserverusername=' $AG_emailserverusername >> ~/.bash_profile
+echo 'export AG_emailserverpassword=' $AG_emailserverpassword >> ~/.bash_profile
+
 
 echo "verifying MVN installation"
 command -v mvn -q >/dev/null 2>&1 || { echo >&2 "Maven is required but not installed yet... aborting."; exit 1; }
@@ -176,7 +194,7 @@ echo
    cp $AG_DEMO_HOME/installs/twitter4j-stream-3.0.5.jar $AG_FSW_HOME/modules/system/layers/soa/org/twitter4j/main
 
 # copy CRM MOK file
-   cp $AG_DEMO_HOME/etc/crm/crm.properties $AG_FSW_HOME/standalone/configuration/
+   cp $AG_DEMO_HOME/etc/crm/crm.properties $AG_FSW_CONF
 
 # create and copy mysql jar dependences files on FSW
    mkdir -p                                       $AG_FSW_HOME/modules/system/layers/base/com/mysql/main
@@ -200,6 +218,16 @@ echo "Creating Launchers  : /FSW_Launch.sh and /BAM_Launch.sh"
 
 echo "#Launch Fuse Service works for Demo AngryClaim" >> $AG_DEMO_HOME/FSW_Launch.sh
 cat ./etc/setSinceId.txt >> $AG_DEMO_HOME/FSW_Launch.sh
+echo "# AngryClaim demo variables" >>  $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_consumerKey=' $AG_consumerKey >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_consumerSecret=' $AG_consumerSecret >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_accessToken=' $AG_accessToken >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_accessTokenSecret=' $AG_accessTokenSecret >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_sinceId=' $AG_sinceId >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_csvInputDir=' $AG_csvInputDir >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_emailserverhost=' $AG_emailserverhost >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_emailserverusername=' $AG_emailserverusername >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_emailserverpassword=' $AG_emailserverpassword >> $AG_DEMO_HOME/FSW_Launch.sh
 echo $AG_FSW_HOME/bin/standalone.sh >> $AG_DEMO_HOME/FSW_Launch.sh
 
 echo "#Launch BPM-Suite BAM for Demo AngryClaim"  >> $AG_DEMO_HOME/BAM_Launch.sh
