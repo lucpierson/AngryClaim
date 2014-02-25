@@ -1,0 +1,438 @@
+19:30:34,699 INFO  [org.jboss.dashboard.profiler.memory.MemoryProfiler] (http-localhost/127.0.0.1:18080-5) Freed 44.507 Mb bytes. Total = 1.163 Gb. Free = 1.035 Gb (88.994804%)
+19:30:35,110 INFO  [org.jboss.dashboard.profiler.memory.MemoryProfiler] (http-localhost/127.0.0.1:18080-5) Freed 2.112 Mb bytes. Total = 1.166 Gb. Free = 1.037 Gb (88.966675%)
+19:30:35,124 ERROR [org.jboss.dashboard.kpi.KPIImpl] (http-localhost/127.0.0.1:18080-5) Error serializing data displayer for KPI: null: java.lang.RuntimeException: java.lang.ArrayIndexOutOfBoundsException: 0
+	at org.jboss.dashboard.displayer.chart.AbstractChartDisplayer.getDomainProperty(AbstractChartDisplayer.java:199) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.displayer.chart.ChartDisplayerXMLFormat.formatDisplayer(ChartDisplayerXMLFormat.java:135) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.displayer.AbstractDataDisplayerXMLFormat.format(AbstractDataDisplayerXMLFormat.java:154) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.displayer.AbstractDataDisplayerXMLFormat.format(AbstractDataDisplayerXMLFormat.java:143) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.kpi.KPIImpl.serializeDataDisplayer(KPIImpl.java:218) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.kpi.KPIImpl.setDataDisplayer(KPIImpl.java:158) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.export.ImportManagerImpl.parseKPIs(ImportManagerImpl.java:248) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.export.ImportManagerImpl.parse(ImportManagerImpl.java:184) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.export.ImportManagerImpl.parse(ImportManagerImpl.java:173) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.export.ImportManagerImpl.parse(ImportManagerImpl.java:149) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.export.ImportManagerImpl$Proxy$_$$_WeldClientProxy.parse(ImportManagerImpl$Proxy$_$$_WeldClientProxy.java) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.ui.components.export.ExportHandler.actionImportKPIs(ExportHandler.java:301) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.7.0_25]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) [rt.jar:1.7.0_25]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) [rt.jar:1.7.0_25]
+	at org.jboss.dashboard.ui.components.HandlerFactoryElement.handle(HandlerFactoryElement.java:140) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.components.FactoryRequestHandler.handle(FactoryRequestHandler.java:154) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.components.FactoryRequestHandler.performRequestHandling(FactoryRequestHandler.java:145) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.components.FactoryRequestHandler.handleRequest(FactoryRequestHandler.java:43) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.panel.PanelDriver.panelActionFactory(PanelDriver.java:1232) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.7.0_25]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) [rt.jar:1.7.0_25]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) [rt.jar:1.7.0_25]
+	at org.jboss.dashboard.ui.panel.PanelDriver.execute(PanelDriver.java:815) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.FactoryActionRequestExecutor.processRequest(FactoryActionRequestExecutor.java:110) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:60) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.ControllerServlet$3.txFragment(ControllerServlet.java:192) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.database.hibernate.HibernateTransaction.executeFragment(HibernateTransaction.java:254) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.executeInitiator(HibernateTxFragment.java:179) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.execute(HibernateTxFragment.java:167) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.ui.controller.ControllerServlet.processTheRequest(ControllerServlet.java:187) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.ControllerServlet$2.doWork(ControllerServlet.java:166) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.factory.Factory.runWork(Factory.java:295) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.factory.Factory.doWork(Factory.java:321) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.ui.controller.ControllerServlet.service(ControllerServlet.java:148) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:847) [jboss-servlet-api_3.0_spec-1.0.2.Final-redhat-1.jar:1.0.2.Final-redhat-1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:295) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:214) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:230) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:149) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:499) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.jboss.as.web.security.SecurityContextAssociationValve.invoke(SecurityContextAssociationValve.java:169) [jboss-as-web-7.2.1.Final-redhat-10.jar:7.2.1.Final-redhat-10]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:145) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:97) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.authenticator.SingleSignOn.invoke(SingleSignOn.java:408) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:102) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:336) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:856) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:653) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:920) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at java.lang.Thread.run(Thread.java:724) [rt.jar:1.7.0_25]
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 0
+	at org.jboss.dashboard.displayer.chart.AbstractChartDisplayer.getDomainProperty(AbstractChartDisplayer.java:190) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	... 63 more
+
+19:30:35,128 ERROR [org.jboss.dashboard.kpi.KPIImpl] (http-localhost/127.0.0.1:18080-5) Error serializing data displayer for KPI: null: java.lang.RuntimeException: java.lang.ArrayIndexOutOfBoundsException: 0
+	at org.jboss.dashboard.displayer.chart.AbstractChartDisplayer.getDomainProperty(AbstractChartDisplayer.java:199) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.displayer.chart.ChartDisplayerXMLFormat.formatDisplayer(ChartDisplayerXMLFormat.java:135) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.displayer.AbstractDataDisplayerXMLFormat.format(AbstractDataDisplayerXMLFormat.java:154) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.displayer.AbstractDataDisplayerXMLFormat.format(AbstractDataDisplayerXMLFormat.java:143) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.kpi.KPIImpl.serializeDataDisplayer(KPIImpl.java:218) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.kpi.KPIImpl.setDataDisplayer(KPIImpl.java:158) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.export.ImportManagerImpl.parseKPIs(ImportManagerImpl.java:248) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.export.ImportManagerImpl.parse(ImportManagerImpl.java:184) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.export.ImportManagerImpl.parse(ImportManagerImpl.java:173) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.export.ImportManagerImpl.parse(ImportManagerImpl.java:149) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.export.ImportManagerImpl$Proxy$_$$_WeldClientProxy.parse(ImportManagerImpl$Proxy$_$$_WeldClientProxy.java) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.ui.components.export.ExportHandler.actionImportKPIs(ExportHandler.java:301) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.7.0_25]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) [rt.jar:1.7.0_25]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) [rt.jar:1.7.0_25]
+	at org.jboss.dashboard.ui.components.HandlerFactoryElement.handle(HandlerFactoryElement.java:140) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.components.FactoryRequestHandler.handle(FactoryRequestHandler.java:154) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.components.FactoryRequestHandler.performRequestHandling(FactoryRequestHandler.java:145) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.components.FactoryRequestHandler.handleRequest(FactoryRequestHandler.java:43) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.panel.PanelDriver.panelActionFactory(PanelDriver.java:1232) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.7.0_25]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) [rt.jar:1.7.0_25]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) [rt.jar:1.7.0_25]
+	at org.jboss.dashboard.ui.panel.PanelDriver.execute(PanelDriver.java:815) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.FactoryActionRequestExecutor.processRequest(FactoryActionRequestExecutor.java:110) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:60) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.ControllerServlet$3.txFragment(ControllerServlet.java:192) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.database.hibernate.HibernateTransaction.executeFragment(HibernateTransaction.java:254) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.executeInitiator(HibernateTxFragment.java:179) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.execute(HibernateTxFragment.java:167) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.ui.controller.ControllerServlet.processTheRequest(ControllerServlet.java:187) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.ControllerServlet$2.doWork(ControllerServlet.java:166) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.factory.Factory.runWork(Factory.java:295) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.factory.Factory.doWork(Factory.java:321) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.ui.controller.ControllerServlet.service(ControllerServlet.java:148) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:847) [jboss-servlet-api_3.0_spec-1.0.2.Final-redhat-1.jar:1.0.2.Final-redhat-1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:295) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:214) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:230) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:149) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:499) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.jboss.as.web.security.SecurityContextAssociationValve.invoke(SecurityContextAssociationValve.java:169) [jboss-as-web-7.2.1.Final-redhat-10.jar:7.2.1.Final-redhat-10]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:145) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:97) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.authenticator.SingleSignOn.invoke(SingleSignOn.java:408) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:102) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:336) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:856) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:653) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:920) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at java.lang.Thread.run(Thread.java:724) [rt.jar:1.7.0_25]
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 0
+	at org.jboss.dashboard.displayer.chart.AbstractChartDisplayer.getDomainProperty(AbstractChartDisplayer.java:190) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	... 63 more
+
+19:30:35,333 ERROR [org.jboss.dashboard.kpi.KPIImpl] (http-localhost/127.0.0.1:18080-5) Error serializing data displayer for KPI: null: java.lang.RuntimeException: java.lang.ArrayIndexOutOfBoundsException: 0
+	at org.jboss.dashboard.displayer.chart.AbstractChartDisplayer.getDomainProperty(AbstractChartDisplayer.java:199) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.displayer.chart.ChartDisplayerXMLFormat.formatDisplayer(ChartDisplayerXMLFormat.java:135) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.displayer.AbstractDataDisplayerXMLFormat.format(AbstractDataDisplayerXMLFormat.java:154) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.displayer.AbstractDataDisplayerXMLFormat.format(AbstractDataDisplayerXMLFormat.java:143) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.kpi.KPIImpl.serializeDataDisplayer(KPIImpl.java:218) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.kpi.KPIImpl$1.txFragment(KPIImpl.java:169) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.database.hibernate.HibernateTransaction.executeFragment(HibernateTransaction.java:254) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.executeChild(HibernateTxFragment.java:194) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.execute(HibernateTxFragment.java:168) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.kpi.KPIImpl.save(KPIImpl.java:166) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.export.ImportManagerImpl.saveOrUpdate(ImportManagerImpl.java:132) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.export.ImportManagerImpl.update(ImportManagerImpl.java:74) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.export.ImportManagerImpl$Proxy$_$$_WeldClientProxy.update(ImportManagerImpl$Proxy$_$$_WeldClientProxy.java) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.ui.components.export.ExportHandler.actionImportKPIs(ExportHandler.java:304) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.7.0_25]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) [rt.jar:1.7.0_25]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) [rt.jar:1.7.0_25]
+	at org.jboss.dashboard.ui.components.HandlerFactoryElement.handle(HandlerFactoryElement.java:140) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.components.FactoryRequestHandler.handle(FactoryRequestHandler.java:154) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.components.FactoryRequestHandler.performRequestHandling(FactoryRequestHandler.java:145) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.components.FactoryRequestHandler.handleRequest(FactoryRequestHandler.java:43) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.panel.PanelDriver.panelActionFactory(PanelDriver.java:1232) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.7.0_25]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) [rt.jar:1.7.0_25]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) [rt.jar:1.7.0_25]
+	at org.jboss.dashboard.ui.panel.PanelDriver.execute(PanelDriver.java:815) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.FactoryActionRequestExecutor.processRequest(FactoryActionRequestExecutor.java:110) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:60) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.ControllerServlet$3.txFragment(ControllerServlet.java:192) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.database.hibernate.HibernateTransaction.executeFragment(HibernateTransaction.java:254) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.executeInitiator(HibernateTxFragment.java:179) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.execute(HibernateTxFragment.java:167) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.ui.controller.ControllerServlet.processTheRequest(ControllerServlet.java:187) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.ControllerServlet$2.doWork(ControllerServlet.java:166) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.factory.Factory.runWork(Factory.java:295) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.factory.Factory.doWork(Factory.java:321) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.ui.controller.ControllerServlet.service(ControllerServlet.java:148) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:847) [jboss-servlet-api_3.0_spec-1.0.2.Final-redhat-1.jar:1.0.2.Final-redhat-1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:295) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:214) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:230) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:149) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:499) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.jboss.as.web.security.SecurityContextAssociationValve.invoke(SecurityContextAssociationValve.java:169) [jboss-as-web-7.2.1.Final-redhat-10.jar:7.2.1.Final-redhat-10]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:145) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:97) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.authenticator.SingleSignOn.invoke(SingleSignOn.java:408) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:102) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:336) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:856) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:653) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:920) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at java.lang.Thread.run(Thread.java:724) [rt.jar:1.7.0_25]
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 0
+	at org.jboss.dashboard.displayer.chart.AbstractChartDisplayer.getDomainProperty(AbstractChartDisplayer.java:190) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	... 65 more
+
+19:30:35,446 WARN  [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (http-localhost/127.0.0.1:18080-5) SQL Error: 1048, SQLState: 23000
+19:30:35,446 ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] (http-localhost/127.0.0.1:18080-5) Column 'displayer_xml' cannot be null
+19:30:35,448 ERROR [org.jboss.dashboard.error.ErrorManager] (http-localhost/127.0.0.1:18080-5) UNEXPECTED ERROR.
+Thread id=http-localhost/127.0.0.1:18080-5
+Thread begin date=Mon Feb 24 19:30:34 CET 2014
+Thread group=main
+Request URL=/dashbuilder/workspace/en/showcase/import-export?csrf=08254674
+Request IP=127.0.0.1
+Request date=Mon Feb 24 19:30:34 CET 2014
+Request header:user-agent=Mozilla/5.0 (X11; Linux x86_64; rv:17.0) Gecko/20130912 Firefox/17.0
+Request header:referer=http://localhost:18080/dashbuilder/Controller?csrf=69277208
+Request header:cookie=JSESSIONID=gF3qQyXdoA7fRWeyx8Ff5pm7; dashbuilderNavigationPoint=en-1kc-1; JSESSIONIDSSO=FKw-8gqKrL3J+CcnuJPkSOga; region_left_web_2_0_cookie=1
+Request param:csrf=08254674
+Tx id=294440905
+Tx Isolation=4
+Tx Auto commit=false
+Workspace=Dashboards Showcase
+Section=Import and export
+Panel=Import dashboards
+Panel id.=1564
+Panel driver=org.jboss.dashboard.ui.panel.kpi.ExportDriver
+Panel action=_factory
+Bean name=org.jboss.dashboard.ui.components.ExportHandler
+Bean scope=panelSession
+Bean action=ImportKPIs
+Error id=1393266635447
+Error date=Mon Feb 24 19:30:35 CET 2014
+Error stack trace=com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'displayer_xml' cannot be null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1040)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3597)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3529)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1990)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2151)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2625)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2119)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2415)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2333)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2318)
+	at org.jboss.jca.adapters.jdbc.WrappedPreparedStatement.executeUpdate(WrappedPreparedStatement.java:493)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:133)
+	at org.hibernate.engine.jdbc.batch.internal.NonBatchingBatch.addToBatch(NonBatchingBatch.java:58)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3058)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3499)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:88)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:362)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:354)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:275)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:328)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:52)
+	at org.hibernate.internal.SessionImpl.flush(SessionImpl.java:1234)
+	at org.jboss.dashboard.kpi.KPIImpl$2.txFragment(KPIImpl.java:204)
+	at org.jboss.dashboard.database.hibernate.HibernateTransaction.executeFragment(HibernateTransaction.java:254)
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.executeChild(HibernateTxFragment.java:194)
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.execute(HibernateTxFragment.java:168)
+	at org.jboss.dashboard.kpi.KPIImpl.persist(KPIImpl.java:186)
+	at org.jboss.dashboard.kpi.KPIImpl$1.txFragment(KPIImpl.java:170)
+	at org.jboss.dashboard.database.hibernate.HibernateTransaction.executeFragment(HibernateTransaction.java:254)
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.executeChild(HibernateTxFragment.java:194)
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.execute(HibernateTxFragment.java:168)
+	at org.jboss.dashboard.kpi.KPIImpl.save(KPIImpl.java:166)
+	at org.jboss.dashboard.export.ImportManagerImpl.saveOrUpdate(ImportManagerImpl.java:132)
+	at org.jboss.dashboard.export.ImportManagerImpl.update(ImportManagerImpl.java:74)
+	at org.jboss.dashboard.export.ImportManagerImpl$Proxy$_$$_WeldClientProxy.update(ImportManagerImpl$Proxy$_$$_WeldClientProxy.java)
+	at org.jboss.dashboard.ui.components.export.ExportHandler.actionImportKPIs(ExportHandler.java:304)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.jboss.dashboard.ui.components.HandlerFactoryElement.handle(HandlerFactoryElement.java:140)
+	at org.jboss.dashboard.ui.components.FactoryRequestHandler.handle(FactoryRequestHandler.java:154)
+	at org.jboss.dashboard.ui.components.FactoryRequestHandler.performRequestHandling(FactoryRequestHandler.java:145)
+	at org.jboss.dashboard.ui.components.FactoryRequestHandler.handleRequest(FactoryRequestHandler.java:43)
+	at org.jboss.dashboard.ui.panel.PanelDriver.panelActionFactory(PanelDriver.java:1232)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.jboss.dashboard.ui.panel.PanelDriver.execute(PanelDriver.java:815)
+	at org.jboss.dashboard.ui.controller.requestChain.FactoryActionRequestExecutor.processRequest(FactoryActionRequestExecutor.java:110)
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:60)
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62)
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62)
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62)
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62)
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62)
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62)
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62)
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62)
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62)
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62)
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62)
+	at org.jboss.dashboard.ui.controller.ControllerServlet$3.txFragment(ControllerServlet.java:192)
+	at org.jboss.dashboard.database.hibernate.HibernateTransaction.executeFragment(HibernateTransaction.java:254)
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.executeInitiator(HibernateTxFragment.java:179)
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.execute(HibernateTxFragment.java:167)
+	at org.jboss.dashboard.ui.controller.ControllerServlet.processTheRequest(ControllerServlet.java:187)
+	at org.jboss.dashboard.ui.controller.ControllerServlet$2.doWork(ControllerServlet.java:166)
+	at org.jboss.dashboard.factory.Factory.runWork(Factory.java:295)
+	at org.jboss.dashboard.factory.Factory.doWork(Factory.java:321)
+	at org.jboss.dashboard.ui.controller.ControllerServlet.service(ControllerServlet.java:148)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:847)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:295)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:214)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:230)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:149)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:499)
+	at org.jboss.as.web.security.SecurityContextAssociationValve.invoke(SecurityContextAssociationValve.java:169)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:145)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:97)
+	at org.apache.catalina.authenticator.SingleSignOn.invoke(SingleSignOn.java:408)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:102)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:336)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:856)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:653)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:920)
+	at java.lang.Thread.run(Thread.java:724)
+
+19:30:35,451 ERROR [org.jboss.dashboard.ui.components.export.ExportHandler] (http-localhost/127.0.0.1:18080-5) Error importing KPIs from file (/home/lpierson/AngryClaim/target_bpms/jboss-eap-6.1/standalone/deployments/dashbuilder.war/./WEB-INF/tmp/gF3qQyXdoA7fRWeyx8Ff5pm7/kpiExport_76041004.xml): org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:74) [hibernate-core-4.2.0.SP1-redhat-1.jar:4.2.0.SP1-redhat-1]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:49) [hibernate-core-4.2.0.SP1-redhat-1.jar:4.2.0.SP1-redhat-1]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:125) [hibernate-core-4.2.0.SP1-redhat-1.jar:4.2.0.SP1-redhat-1]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:110) [hibernate-core-4.2.0.SP1-redhat-1.jar:4.2.0.SP1-redhat-1]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:136) [hibernate-core-4.2.0.SP1-redhat-1.jar:4.2.0.SP1-redhat-1]
+	at org.hibernate.engine.jdbc.batch.internal.NonBatchingBatch.addToBatch(NonBatchingBatch.java:58) [hibernate-core-4.2.0.SP1-redhat-1.jar:4.2.0.SP1-redhat-1]
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3058) [hibernate-core-4.2.0.SP1-redhat-1.jar:4.2.0.SP1-redhat-1]
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3499) [hibernate-core-4.2.0.SP1-redhat-1.jar:4.2.0.SP1-redhat-1]
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:88) [hibernate-core-4.2.0.SP1-redhat-1.jar:4.2.0.SP1-redhat-1]
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:362) [hibernate-core-4.2.0.SP1-redhat-1.jar:4.2.0.SP1-redhat-1]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:354) [hibernate-core-4.2.0.SP1-redhat-1.jar:4.2.0.SP1-redhat-1]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:275) [hibernate-core-4.2.0.SP1-redhat-1.jar:4.2.0.SP1-redhat-1]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:328) [hibernate-core-4.2.0.SP1-redhat-1.jar:4.2.0.SP1-redhat-1]
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:52) [hibernate-core-4.2.0.SP1-redhat-1.jar:4.2.0.SP1-redhat-1]
+	at org.hibernate.internal.SessionImpl.flush(SessionImpl.java:1234) [hibernate-core-4.2.0.SP1-redhat-1.jar:4.2.0.SP1-redhat-1]
+	at org.jboss.dashboard.kpi.KPIImpl$2.txFragment(KPIImpl.java:204) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.database.hibernate.HibernateTransaction.executeFragment(HibernateTransaction.java:254) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.executeChild(HibernateTxFragment.java:194) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.execute(HibernateTxFragment.java:168) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.kpi.KPIImpl.persist(KPIImpl.java:186) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.kpi.KPIImpl$1.txFragment(KPIImpl.java:170) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.database.hibernate.HibernateTransaction.executeFragment(HibernateTransaction.java:254) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.executeChild(HibernateTxFragment.java:194) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.execute(HibernateTxFragment.java:168) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.kpi.KPIImpl.save(KPIImpl.java:166) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.export.ImportManagerImpl.saveOrUpdate(ImportManagerImpl.java:132) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.export.ImportManagerImpl.update(ImportManagerImpl.java:74) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.export.ImportManagerImpl$Proxy$_$$_WeldClientProxy.update(ImportManagerImpl$Proxy$_$$_WeldClientProxy.java) [dashboard-displayer-core-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.ui.components.export.ExportHandler.actionImportKPIs(ExportHandler.java:304) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.7.0_25]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) [rt.jar:1.7.0_25]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) [rt.jar:1.7.0_25]
+	at org.jboss.dashboard.ui.components.HandlerFactoryElement.handle(HandlerFactoryElement.java:140) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.components.FactoryRequestHandler.handle(FactoryRequestHandler.java:154) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.components.FactoryRequestHandler.performRequestHandling(FactoryRequestHandler.java:145) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.components.FactoryRequestHandler.handleRequest(FactoryRequestHandler.java:43) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.panel.PanelDriver.panelActionFactory(PanelDriver.java:1232) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.7.0_25]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) [rt.jar:1.7.0_25]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.7.0_25]
+	at java.lang.reflect.Method.invoke(Method.java:606) [rt.jar:1.7.0_25]
+	at org.jboss.dashboard.ui.panel.PanelDriver.execute(PanelDriver.java:815) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.FactoryActionRequestExecutor.processRequest(FactoryActionRequestExecutor.java:110) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:60) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.requestChain.RequestChainProcessor.doRequestProcessing(RequestChainProcessor.java:62) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.ControllerServlet$3.txFragment(ControllerServlet.java:192) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.database.hibernate.HibernateTransaction.executeFragment(HibernateTransaction.java:254) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.executeInitiator(HibernateTxFragment.java:179) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.database.hibernate.HibernateTxFragment.execute(HibernateTxFragment.java:167) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.ui.controller.ControllerServlet.processTheRequest(ControllerServlet.java:187) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.ui.controller.ControllerServlet$2.doWork(ControllerServlet.java:166) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at org.jboss.dashboard.factory.Factory.runWork(Factory.java:295) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.factory.Factory.doWork(Factory.java:321) [dashboard-commons-6.0.2-redhat-1.jar:6.0.2-redhat-1]
+	at org.jboss.dashboard.ui.controller.ControllerServlet.service(ControllerServlet.java:148) [dashboard-ui-core-6.0.2-redhat-1.jar:]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:847) [jboss-servlet-api_3.0_spec-1.0.2.Final-redhat-1.jar:1.0.2.Final-redhat-1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:295) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:214) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:230) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:149) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:499) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.jboss.as.web.security.SecurityContextAssociationValve.invoke(SecurityContextAssociationValve.java:169) [jboss-as-web-7.2.1.Final-redhat-10.jar:7.2.1.Final-redhat-10]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:145) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:97) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.authenticator.SingleSignOn.invoke(SingleSignOn.java:408) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:102) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:336) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:856) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:653) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:920) [jbossweb-7.2.2.Final-redhat-1.jar:7.2.2.Final-redhat-1]
+	at java.lang.Thread.run(Thread.java:724) [rt.jar:1.7.0_25]
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'displayer_xml' cannot be null
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) [rt.jar:1.7.0_25]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57) [rt.jar:1.7.0_25]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) [rt.jar:1.7.0_25]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526) [rt.jar:1.7.0_25]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411) [mysql-connector-java.jar:]
+	at com.mysql.jdbc.Util.getInstance(Util.java:386) [mysql-connector-java.jar:]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1040) [mysql-connector-java.jar:]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3597) [mysql-connector-java.jar:]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3529) [mysql-connector-java.jar:]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1990) [mysql-connector-java.jar:]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2151) [mysql-connector-java.jar:]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2625) [mysql-connector-java.jar:]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2119) [mysql-connector-java.jar:]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2415) [mysql-connector-java.jar:]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2333) [mysql-connector-java.jar:]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2318) [mysql-connector-java.jar:]
+	at org.jboss.jca.adapters.jdbc.WrappedPreparedStatement.executeUpdate(WrappedPreparedStatement.java:493) [ironjacamar-jdbc-1.0.19.Final-redhat-2.jar:1.0.19.Final-redhat-2]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:133) [hibernate-core-4.2.0.SP1-redhat-1.jar:4.2.0.SP1-redhat-1]
+	... 76 more
+
+19:30:35,519 INFO  [org.hibernate.engine.jdbc.batch.internal.AbstractBatchImpl] (http-localhost/127.0.0.1:18080-5) HHH000010: On release of batch it still contained JDBC statements

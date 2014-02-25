@@ -5,7 +5,7 @@ PROJECT="git@github.com/lucpierson/AngryClaim"
 PRODUCT="JBoss FUSE Service works + BPM Suite BAM"
 AG_DEMO_HOME=~/AngryClaim
 AG_SRC_DIR=$AG_DEMO_HOME/installs
-AG_FSW_HOME=$AG_DEMO_HOME/target_fws/jboss-eap-6.1
+AG_FSW_HOME=$AG_DEMO_HOME/target_fsw/jboss-eap-6.1
 AG_FSW_CONF=$AG_FSW_HOME/standalone/configuration/
 AG_BAM_HOME=$AG_DEMO_HOME/target_bpms/jboss-eap-6.1
 AG_BAM_CONF=$AG_BAM_HOME/standalone/configuration/
@@ -78,9 +78,9 @@ fi
 # Create the target directory if it does not already exist.
   echo "  - creating the target directory..."
   echo
-  rm -rf target_fws
+  rm -rf target_fsw
   rm -rf target_bpms
-  mkdir target_fws
+  mkdir target_fsw
   mkdir target_bpms
   echo
 
