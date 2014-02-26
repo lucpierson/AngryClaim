@@ -1,9 +1,8 @@
 AngryTweet Fuse Service Works Demo
 ==================================
 
-# *******************************************
-# ********* IN CONSTRUCTION             *****
-# *******************************************
+      easy step by step instructions may be found in 2014.02.AngryClaimInstall.pdf
+
 
 Installation pre-requisite (RHEL 6.4 server)
 --------------------------------------------
@@ -49,10 +48,14 @@ create a file in /etc/profile.d/maven.sh containing :
 
 7) create a twitter app (see below) and a gmail account
 
-      update the init.sh with the correct tokens (system properties §)
+      update the init.sh with the correct tokens
 
 
 8) launch ~/AngryClaim/init.sh
+
+9) final demo instructions are generated in readme.txt
+
+
 
 
 
