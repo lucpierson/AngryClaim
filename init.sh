@@ -252,43 +252,50 @@ echo $AG_BAM_HOME/bin/standalone.sh >> $AG_DEMO_HOME/BAM_Launch.sh
 
 chmod +x BAM_Launch.sh FSW_Launch.sh
 
-echo
-echo "******************************************************************"
-echo "**     F I N A L    I N S T R U C T I O N S                 ******"
-echo "**                                                          ******"
-echo "******************************************************************"
-echo "Other actions may be very long, please launch them Manually : "
-echo "  1) creation of the deployable applications with maven clean package"
-echo "        mvn clean package  "
-echo "  2) Deploy the application into Fuse Service works"
-echo "        cp " $AG_DEMO_HOME/crm-service/target/crm-service.war " " $AG_FSW_HOME/standalone/deployments/
-echo "        cp " $AG_DEMO_HOME/switchyard-ear/target/switchyard-angrytweet.ear " " $AG_FSW_HOME/standalone/deployments/
-echo " "     
+echo " " >>readme.txt
+echo "******************************************************************">>readme.txt
+echo "**                                                          ******">>readme.txt
+echo "**        A N G R Y              C L A I M                  ******">>readme.txt
+echo "**                                                          ******">>readme.txt
+echo "**        F I N A L    I N S T R U C T I O N S              ******">>readme.txt
+echo "**                                                          ******">>readme.txt
+echo "******************************************************************">>readme.txt
+echo " ">>readme.txt
+echo "Other actions may be very long, please launch them Manually : ">>readme.txt
+echo "  1) creation of the deployable applications with maven clean package">>readme.txt
+echo "        mvn clean package  ">>readme.txt
+echo "  2) Deploy the application into Fuse Service works">>readme.txt
+echo "        cp " $AG_DEMO_HOME/crm-service/target/crm-service.war " " $AG_FSW_HOME/standalone/deployments/>>readme.txt
+echo "        cp " $AG_DEMO_HOME/switchyard-ear/target/switchyard-angrytweet.ear " " $AG_FSW_HOME/standalone/deployments/>>readme.txt
+echo " "     >>readme.txt
+echo " "     >>readme.txt
+echo "Before FSW re-start, update of the CRM users  in" >>readme.txt
+echo "            "  $AG_FSW_HOME/standalone/configuration/crm.properties>>readme.txt
+echo " " >>readme.txt
+echo "After BAM Start, in the dashboard configuration, create" >>readme.txt
+echo "    create externalConnection JNDI : name=AngryClamDB  jndi=java:jboss/datasources/AngryTweetDS" >>readme.txt
+echo " " >>readme.txt
+echo "    create dataProvider : AngryClaimTickets" >>readme.txt
+echo "                           select * from ticket order by channel_in">>readme.txt
+echo "    create dataProvider : name=AngryClaimVeryAngryUsers, " >>readme.txt
+echo "                          select customer, area_code,compteur from(  select customer, area_code, count(*) as compteur  from (select customer,area_code, urgent  from ( select customer, channel_in, area_code, urgent from  angrytweet.ticket group by customer,channel_in order by customer, channel_in) AS T) as T2  group by customer) as T3 where compteur>1;" >>readme.txt
+echo "    and import the following file into the BAM workspace">>readme.txt
+echo "            "  $AG_DEMO_HOME/etc/BAM/kpiExport_76041004.xml>>readme.txt
+echo "            "  $AG_DEMO_HOME/etc/BAM/export_workspace.cex>>readme.txt
+echo " ">>readme.txt
+echo "You can now start FSW  with FSW_Launch.sh ">>readme.txt
 echo " "
-echo "Before FSW re-start, update of the CRM users  in" 
-echo "            "  $AG_FSW_HOME/standalone/configuration/crm.properties
-echo " "
-echo "After BAM Start, in the dashboard configuration, create"
-echo "    create externalConnection JNDI : name=AngryClamDB  jndi=java:jboss/datasources/AngryTweetDS"
-echo 
-echo "    create dataProvider : name=AngryClaimTickets, select * from ticket order by channel_in"
-echo "    create dataProvider : name=AngryClaimVeryAngryUsers, select customer, area_code,compteur from(  select customer, area_code, count(*) as compteur  from (select customer,area_code, urgent  from ( select customer, channel_in, area_code, urgent from  angrytweet.ticket group by customer,channel_in order by customer, channel_in) AS T) as T2  group by customer) as T3 where compteur>1;"
-echo "    and import the following file into the BAM workspace"
-echo "            "  $AG_DEMO_HOME/etc/BAM/kpiExport_76041004.xml
-echo "            "  $AG_DEMO_HOME/etc/BAM/export_workspace.cex
-echo " "
-echo "You can now start FSW  with FSW_Launch.sh "
-echo " "
-echo "               and BAM with BAM_Launch.sh "
-echo " "
-echo "URL to launch BAM is "
-echo "            http://localhost:18080/dashbuilder/workspace/en/AngryClaimShowcase" 
-echo 
-echo
-echo "BAM users  are : "
-echo "#    admin / redhat123@"
-echo "#    btic  / redhat123@"
-echo
+echo "               and BAM with BAM_Launch.sh ">>readme.txt
+echo " ">>readme.txt
+echo "URL to launch BAM is ">>readme.txt
+echo "            http://localhost:18080/dashbuilder/workspace/en/AngryClaimShowcase" >>readme.txt
+echo " ">>readme.txt
+echo " ">>readme.txt
+echo "BAM users  are : ">>readme.txt
+echo "#    admin / redhat123@">>readme.txt
+echo "#    btic  / redhat123@">>readme.txt
+
+cat readme.txt
 
 
 
