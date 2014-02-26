@@ -273,11 +273,13 @@ echo "Before FSW re-start, update of the CRM users  in" >>readme.txt
 echo "            "  $AG_FSW_HOME/standalone/configuration/crm.properties>>readme.txt
 echo " " >>readme.txt
 echo "After BAM Start, in the dashboard configuration, create" >>readme.txt
-echo "    create externalConnection JNDI : name=AngryClamDB  jndi=java:jboss/datasources/AngryTweetDS" >>readme.txt
+echo "    create externalConnection JNDI : name=      AngryClamDB " >>readme.txt
+echo "                                     jndiPath=  java:jboss/datasources/AngryTweetDS" >>readme.txt
+echo "                                     testQuery= select 1"  >>readme.txt
 echo " " >>readme.txt
 echo "    create dataProvider : AngryClaimTickets" >>readme.txt
-echo "                           select * from ticket order by channel_in">>readme.txt
-echo "    create dataProvider : name=AngryClaimVeryAngryUsers, " >>readme.txt
+echo "                          select * from ticket order by channel_in">>readme.txt
+echo "    create dataProvider : name=AngryClaimVeryAngryUsers " >>readme.txt
 echo "                          select customer, area_code,compteur from(  select customer, area_code, count(*) as compteur  from (select customer,area_code, urgent  from ( select customer, channel_in, area_code, urgent from  angrytweet.ticket group by customer,channel_in order by customer, channel_in) AS T) as T2  group by customer) as T3 where compteur>1;" >>readme.txt
 echo "    and import the following file into the BAM workspace">>readme.txt
 echo "            "  $AG_DEMO_HOME/etc/BAM/kpiExport_76041004.xml>>readme.txt
