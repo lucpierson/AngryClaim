@@ -244,6 +244,9 @@ echo 'export AG_csvInputDir='$AG_csvInputDir >> $AG_DEMO_HOME/FSW_Launch.sh
 echo 'export AG_emailserverhost="'$AG_emailserverhost'"' >> $AG_DEMO_HOME/FSW_Launch.sh
 echo 'export AG_emailserverusername="'$AG_emailserverusername'"' >> $AG_DEMO_HOME/FSW_Launch.sh
 echo 'export AG_emailserverpassword="'$AG_emailserverpassword'"' >> $AG_DEMO_HOME/FSW_Launch.sh
+echo ' ' >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'echo environment variables attached to the demo : '>> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'env | grep AG_' >> $AG_DEMO_HOME/FSW_Launch.sh
 echo $AG_FSW_HOME/bin/standalone.sh >> $AG_DEMO_HOME/FSW_Launch.sh
 
 echo "#!/bin/sh" >> $AG_DEMO_HOME/BAM_Launch.sh
@@ -295,27 +298,14 @@ echo " ">>readme.txt
 echo " ">>readme.txt
 echo "BAM users  are : ">>readme.txt
 echo "#    admin / redhat123@">>readme.txt
-echo "#    btic  / redhat123@">>readme.txt
-
+echo ' '
+echo ' '
 cat readme.txt
-
-
-
-
-# luc / luc9999ç
-# add in BAM/standalone/configuration/application-user : luc=212420d26951218a06cf95ab5f7cd8ca 
-
-# create dataProvider : actionsFromSource
-#         select * from ticket order by channel_in
-# create dataProvider : cbyc_sup1
-#    select customer, area_code,compteur from(  select customer, area_code, count(*) as compteur  from (select customer,area_code, urgent  from ( select customer, channel_in, area_code, urgent from  angrytweet.ticket group by customer,channel_in order by customer, channel_in) AS T) as T2  group by customer) as T3 where compteur>1;
 echo
 echo "******************************************************************"
 echo
-echo
-echo
-echo "Setup Complete. Have Fun  with Fuse Service Works"
-echo " the Authors :  ${AUTHORS}"
+echo "Setup Complete. Have Fun  with Fuse Service Works. "
+echo "      the Authors :  ${AUTHORS}"
 echo
 
 
