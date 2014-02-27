@@ -236,14 +236,14 @@ echo "Creating Launchers  : /FSW_Launch.sh and /BAM_Launch.sh"
 echo "#!/bin/sh" >> $AG_DEMO_HOME/FSW_Launch.sh
 echo "#Launch Fuse Service works for Demo AngryClaim" >> $AG_DEMO_HOME/FSW_Launch.sh
 cat ./etc/setSinceId.txt >> $AG_DEMO_HOME/FSW_Launch.sh
-echo 'export AG_consumerKey="'$AG_consumerKey'"' >> $AG_DEMO_HOME/FSW_Launch.sh
-echo 'export AG_consumerSecret="'$AG_consumerSecret'"' >> $AG_DEMO_HOME/FSW_Launch.sh
-echo 'export AG_accessToken="'$AG_accessToken'"' >> $AG_DEMO_HOME/FSW_Launch.sh
-echo 'export AG_accessTokenSecret="'$AG_accessTokenSecret'"' >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_consumerKey=\"'$AG_consumerKey'\"' >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_consumerSecret=\"'$AG_consumerSecret'\"' >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_accessToken=\"'$AG_accessToken'\"' >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_accessTokenSecret=\"'$AG_accessTokenSecret'\"' >> $AG_DEMO_HOME/FSW_Launch.sh
 echo 'export AG_csvInputDir='$AG_csvInputDir >> $AG_DEMO_HOME/FSW_Launch.sh
-echo 'export AG_emailserverhost="'$AG_emailserverhost'"' >> $AG_DEMO_HOME/FSW_Launch.sh
-echo 'export AG_emailserverusername="'$AG_emailserverusername'"' >> $AG_DEMO_HOME/FSW_Launch.sh
-echo 'export AG_emailserverpassword="'$AG_emailserverpassword'"' >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_emailserverhost=\"'$AG_emailserverhost'\"' >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_emailserverusername=\"'$AG_emailserverusername'\"' >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_emailserverpassword=\"'$AG_emailserverpassword'\"' >> $AG_DEMO_HOME/FSW_Launch.sh
 echo ' ' >> $AG_DEMO_HOME/FSW_Launch.sh
 echo 'echo environment variables attached to the demo : '>> $AG_DEMO_HOME/FSW_Launch.sh
 echo 'env | grep AG_' >> $AG_DEMO_HOME/FSW_Launch.sh
