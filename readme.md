@@ -1,11 +1,12 @@
-AngryTweet Fuse Service Works Demo
-==================================
+AngryTweet/AngryClaim Fuse Service Works Demo with BAM 
+======================================================
 
-      easy step by step instructions may be found in 2014.02.AngryClaimInstall.pdf
+      easy step by step instructions may be found in 2014.08.AngryClaimInstall.pdf
 
 
 Installation pre-requisite (RHEL 6.4 server)
 --------------------------------------------
+0) get a gmail account and a twitter accout. create a twitter app (dev.twitter.com) and its credentials
 
 1) Install MAVEN
 
@@ -37,19 +38,13 @@ create a file in /etc/profile.d/maven.sh containing :
 
 5) Download required softwares and place them in ~/AngryClaim/installs
 
-     from Redhat downloads       
-        ==> jboss-fsw-installer-6.0.0.GA-redhat-4.jar 
-        ==> jboss-bpms-6.0.0.GA-redhat-1-deployable-eap6.x.zip
-        ==> jboss-eap-6.1.1.zip
-     from search.maven.org 
-        ==> twitter4j-core-3.0.5.jar
-        ==> twitter4j-stream-3.0.5.jar
+     see  ~/AngryClaim/intalls/readme.md
+
 6) Reboot
 
-7) create a twitter app (see below) and a gmail account
-
-      update the init.sh with the correct tokens
-
+7) update the following files  with the correct tokens 
+        ~/AngryClaim/intalls/gmail.env.sh
+        ~/AngryClaim/intalls/twitter.env.sh
 
 8) launch ~/AngryClaim/init.sh
 
@@ -142,5 +137,7 @@ The FSW server needs to be started up with a number of system properties:
 * email.server.host : email server url (example smtps://smtp.gmail.com:465 for gmail)
 * email.server.username : email server user name
 * email.server.password : email server password (note: should not contain characters as ?,&,+ ...) 
+* crm.host : host name/ip address of the crm application
+* crm.port : port of the crm application
 
 

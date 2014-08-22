@@ -1,0 +1,6 @@
+id;date;requester;service;message;urgent
+'1234567890';'2014.01.21 12:08:56 CET';'BernardTison';'cable';'service down';1
+'1234567891';'2014.01.21 14:35:24 CET';'LucPierson';'tel';'service down';1
+'1234567892';'2014.01.21 16:09:02 CET';'NoelRocher';'internet';'no connection';0
+'1234567893';'2014.01.23 07:12:51 CET';'BernardTison';'internet';'cannot connect';0
+'1234567894';'2014.01.24 18:08:56 CET';'BernardTison';'tel';'service down';1

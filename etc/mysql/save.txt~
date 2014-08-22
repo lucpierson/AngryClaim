@@ -1,0 +1,13 @@
+
+
+
+save : 
+------
+mysql -u jboss -pjboss -h localhost --xml -e 'SELECT * FROM angrytweet.ticket' > /home/lpierson/AngryClaim/tickets.xml
+
+
+reload : 
+---------
+mysql -u jboss -p -h localhost 
+
+mysql> LOAD XML /home/lpierson/AngryClaim/tickets.xml INTO TABLE angrytweet.ticket;

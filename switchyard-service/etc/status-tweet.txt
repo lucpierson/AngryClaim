@@ -1,0 +1,71 @@
+StatusJSONImpl
+{
+  createdAt=Tue Jan 21 23:21:12 CET 2014, 
+  id=425754983678476289, 
+  text='Test AngryTweet @BernardTison', 
+  source='web', 
+  isTruncated=false, 
+  inReplyToStatusId=-1, 
+  inReplyToUserId=-1, 
+  isFavorited=false, 
+  isRetweeted=false, 
+  favoriteCount=0, 
+  inReplyToScreenName='null', 
+  geoLocation=null, 
+  place=null, 
+  retweetCount=0, 
+  isPossiblySensitive=false, 
+  isoLanguageCode=en, 
+  contributorsIDs=[J@42d94a52, 
+  retweetedStatus=null, 
+  userMentionEntities=
+  [UserMentionEntityJSONImpl 
+    {
+      name='Bernard Tison', 
+      screenName='BernardTison', 
+      id=2302938169
+    }
+  ], 
+  urlEntities=[], 
+  hashtagEntities=[], 
+  mediaEntities=[], 
+  currentUserRetweetId=-1, 
+  user=UserJSONImpl
+  {
+    id=2303390664, 
+    name='Bernard Tison', 
+    screenName='BTisonTest', 
+    location='', 
+    description='', 
+    isContributorsEnabled=false, 
+    profileImageUrl='http://abs.twimg.com/sticky/default_profile_images/default_profile_1_normal.png', 
+    profileImageUrlHttps='https://abs.twimg.com/sticky/default_profile_images/default_profile_1_normal.png', 
+    url='null', 
+    isProtected=false, 
+    followersCount=1, 
+    status=null, 
+    profileBackgroundColor='C0DEED', 
+    profileTextColor='333333', 
+    profileLinkColor='0084B4', 
+    profileSidebarFillColor='DDEEF6', 
+    profileSidebarBorderColor='C0DEED', 
+    profileUseBackgroundImage=true, 
+    showAllInlineMedia=false, 
+    friendsCount=0, 
+    createdAt=Tue Jan 21 17:57:18 CET 2014, 
+    favouritesCount=0, 
+    utcOffset=-1, 
+    timeZone='null', 
+    profileBackgroundImageUrl='http://abs.twimg.com/images/themes/theme1/bg.png', 
+    profileBackgroundImageUrlHttps='https://abs.twimg.com/images/themes/theme1/bg.png', 
+    profileBackgroundTiled=false, 
+    lang='en', 
+    statusesCount=2, 
+    isGeoEnabled=false, 
+    isVerified=false, 
+    translator=false, 
+    listedCount=0, 
+    isFollowRequestSent=false
+  }
+}
+    

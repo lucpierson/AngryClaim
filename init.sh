@@ -7,24 +7,17 @@ AG_DEMO_HOME=~/AngryClaim
 AG_SRC_DIR=$AG_DEMO_HOME/installs
 AG_FSW_HOME=$AG_DEMO_HOME/target_fsw/jboss-eap-6.1
 AG_FSW_CONF=$AG_FSW_HOME/standalone/configuration/
+AG_RTG_HOME=$AG_DEMO_HOME/target_RtGov/jboss-eap-6.1
+AG_RTG_CONF=$AG_RTG_HOME/standalone/configuration/
 AG_BAM_HOME=$AG_DEMO_HOME/target_bpms/jboss-eap-6.1
 AG_BAM_CONF=$AG_BAM_HOME/standalone/configuration/
+AG_CRM_HOST=localhost
+AG_CRM_PORT=8080
 EAP=jboss-eap-6.1.1.zip
 BPMS=jboss-bpms-6.0.0.GA-redhat-1-deployable-eap6.x.zip
 FSW=jboss-fsw-installer-6.0.0.GA-redhat-4.jar
-VERSION=AngryClaim.V1.1
-
-# TWITTER Application CONF
-AG_consumerKey="RKSAz48dn9NPNNEfPAntow"
-AG_consumerSecret="h3exEYiVO5JVTG15vb1aGcS9t2FGAQiwTVLV0BgE"
-AG_accessToken="2325112519-3qxgj7OrCb3aCXex2dxlpSIpRWoXhgZXSWR8uRC"
-AG_accessTokenSecret="C3izmkk1Wa2DC2Gwst3nbvOZWozoSgLLfqZYffAKRgHyG"
-AG_sinceId=1
-
-# GMAIL SMTP Account configuration
-AG_emailserverhost="smtps://smtp.gmail.com:465"
-AG_emailserverusername="angryClaim@gmail.com"
-AG_emailserverpassword=""
+RTG=jboss-fsw-installer-6.0.0.GA-redhat-4.jar
+VERSION=AngryClaim.V2
 
 # CSV Directory to Scan
 AG_csvInputDir=$AG_DEMO_HOME/etc/csv/demo/
@@ -47,20 +40,35 @@ echo "##  ${PROJECT} "
 echo "##                                                             ##"   
 echo "#################################################################"
 echo
-
-
-echo "creating system variables"
+echo " remember to add your own parameters in  the following files"
+echo "     ./installs/twitter.env.sh"
+echo "     ./installs/gmail.env.sh"
 echo
-echo "# AngryClaim demo variables" >>  ~/.bash_profile
-echo 'export AG_consumerKey="'$AG_consumerKey'"' >> ~/.bash_profile
-echo 'export AG_consumerSecret="'$AG_consumerSecret'"' >> ~/.bash_profile
-echo 'export AG_accessToken="'$AG_accessToken'"' >> ~/.bash_profile
-echo 'export AG_accessTokenSecret="'$AG_accessTokenSecret'"' >> ~/.bash_profile
-echo 'export AG_sinceId="'$AG_sinceId'"' >> ~/.bash_profile
-echo 'export AG_csvInputDir="'$AG_csvInputDir >> ~/.bash_profile
-echo 'export AG_emailserverhost="'$AG_emailserverhost'"' >> ~/.bash_profile
-echo 'export AG_emailserverusername="'$AG_emailserverusername'"' >> ~/.bash_profile
-echo 'export AG_emailserverpassword="'$AG_emailserverpassword'"' >> ~/.bash_profile
+read -n 1 -p 'Press any key to continue or [CTL]+C to stop' 
+
+
+
+test -L "$AG_DEMO_HOME/installs/twitter.env.sh" || test -f "$AG_DEMO_HOME/installs/twitter.env.sh" || { echo  $AG_DEMO_HOME/installs/twitter.env.sh 'is not present in installs directory.... aborting.'; exit 1; }
+source $AG_DEMO_HOME/installs/twitter.env.sh
+test -L "$AG_DEMO_HOME/installs/gmail.env.sh" || test -f "$AG_DEMO_HOME/installs/gmail.env.sh" || { echo  $AG_DEMO_HOME/installs/gmail.env.sh 'is not present in installs directory.... aborting.'; exit 1; }
+source $AG_DEMO_HOME/installs/gmail.env.sh
+
+#env | grep AG_
+#exit 1
+
+
+#echo "creating system variables"
+#echo
+#echo "# AngryClaim demo variables" >>  ~/.bash_profile
+#echo 'export AG_consumerKey="'$AG_consumerKey'"' >> ~/.bash_profile
+#echo 'export AG_consumerSecret="'$AG_consumerSecret'"' >> ~/.bash_profile
+#echo 'export AG_accessToken="'$AG_accessToken'"' >> ~/.bash_profile
+#echo 'export AG_accessTokenSecret="'$AG_accessTokenSecret'"' >> ~/.bash_profile
+#echo 'export AG_sinceId="'$AG_sinceId'"' >> ~/.bash_profile
+#echo 'export AG_csvInputDir="'$AG_csvInputDir'"' >> ~/.bash_profile
+#echo 'export AG_emailserverhost="'$AG_emailserverhost'"' >> ~/.bash_profile
+#echo 'export AG_emailserverusername="'$AG_emailserverusername'"' >> ~/.bash_profile
+#echo 'export AG_emailserverpassword="'$AG_emailserverpassword'"' >> ~/.bash_profile
 
 
 echo "verifying  and updating MVN installation"
@@ -70,7 +78,7 @@ cp $AG_DEMO_HOME/etc/mvn_config/settings.xml ~/.m2/settings.xml
 echo
 
 
-echo "verifying that MySQM is installed and started"
+echo "verifying that MySQL is installed and started"
 AG_FICHIER=/usr/share/java/mysql-connector-java.jar
 test -L "$AG_FICHIER" || test -f "$AG_FICHIER" || { echo "MySQL is required but not installed yet. Please launch yum install mysql* .... aborting."; exit 1; }
 service mysqld status ||  { echo "mysql server is not up.... aborting."; exit 1; }
@@ -103,9 +111,11 @@ fi
   echo "  - creating the target directory..."
   echo
   rm -rf target_fsw
+  rm -rf target_RtGov
   rm -rf target_bpms
   mkdir target_fsw
   mkdir target_bpms
+#  mkdir target_RtGov
   echo
 
 # Unzip the JBoss EAP instance.
@@ -167,6 +177,12 @@ echo
    sed -i 's|JAVA_OPTS=\"$JAVA_OPTS -Djava.security.manager|#JAVA_OPTS=\"$JAVA_OPTS -Djava.security.manager|g' $AG_FSW_HOME/bin/standalone.conf
    sed -i 's|JAVA_OPTS=\"$JAVA_OPTS -Djava.security.manager|#JAVA_OPTS=\"$JAVA_OPTS -Djava.security.manager|g' $AG_BAM_HOME/bin/standalone.conf
 
+#turn on /home/lpierson/AngryClaim/target_fsw/jboss-eap-6.1/standalone/configuration/overlord-rtgov.properties (collectionEnabled)
+echo "  - turn on /home/lpierson/AngryClaim/target_fsw/jboss-eap-6.1/standalone/configuration/overlord-rtgov.properties (collectionEnabled)"
+
+   sed -i 's|collectionEnabled=false|collectionEnabled=true|g' $AG_FSW_HOME/standalone/configuration/overlord-rtgov.properties
+
+
 echo "  - additional options  in FSW standalone.conf..."
 echo
    echo "# AngryClaim options for Twitter and gmail account" >> $AG_FSW_HOME/bin/standalone.conf
@@ -179,6 +195,9 @@ echo
    echo 'JAVA_OPTS="$JAVA_OPTS -Demail.server.host=$AG_emailserverhost"' >> $AG_FSW_HOME/bin/standalone.conf
    echo 'JAVA_OPTS="$JAVA_OPTS -Demail.server.username=$AG_emailserverusername"' >> $AG_FSW_HOME/bin/standalone.conf
    echo 'JAVA_OPTS="$JAVA_OPTS -Demail.server.password=$AG_emailserverpassword"' >> $AG_FSW_HOME/bin/standalone.conf
+   echo 'JAVA_OPTS="$JAVA_OPTS -Dcrm.host=$AG_CRM_HOST"' >> $AG_FSW_HOME/bin/standalone.conf
+   echo 'JAVA_OPTS="$JAVA_OPTS -Dcrm.port=$AG_CRM_PORT"' >> $AG_FSW_HOME/bin/standalone.conf
+
 
 
 echo "  - additional options  in BAM standalone.conf..."
@@ -231,10 +250,11 @@ $AG_BAM_HOME/bin/add-user.sh -a admin redhat123@
 echo 'admin=analyst,admin' >> $AG_BAM_CONF/application-roles.properties
 
 echo
-echo "Creating Launchers  : /FSW_Launch.sh and /BAM_Launch.sh"
+echo "Creating Launchers  : FSW_Launch.sh and BAM_Launch.sh"
 
 echo "#!/bin/sh" >> $AG_DEMO_HOME/FSW_Launch.sh
-echo "#Launch Fuse Service works for Demo AngryClaim" >> $AG_DEMO_HOME/FSW_Launch.sh
+echo "echo Launch Fuse Service works for Demo AngryClaim" >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'service mysqld status ||  { echo \"mysql server is not up.... aborting.\"; exit 1; }'>> $AG_DEMO_HOME/FSW_Launch.sh
 cat ./etc/setSinceId.txt >> $AG_DEMO_HOME/FSW_Launch.sh
 echo 'export AG_consumerKey=\"'$AG_consumerKey'\"' >> $AG_DEMO_HOME/FSW_Launch.sh
 echo 'export AG_consumerSecret=\"'$AG_consumerSecret'\"' >> $AG_DEMO_HOME/FSW_Launch.sh
@@ -244,13 +264,19 @@ echo 'export AG_csvInputDir='$AG_csvInputDir >> $AG_DEMO_HOME/FSW_Launch.sh
 echo 'export AG_emailserverhost=\"'$AG_emailserverhost'\"' >> $AG_DEMO_HOME/FSW_Launch.sh
 echo 'export AG_emailserverusername=\"'$AG_emailserverusername'\"' >> $AG_DEMO_HOME/FSW_Launch.sh
 echo 'export AG_emailserverpassword=\"'$AG_emailserverpassword'\"' >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_CRM_HOST=\"'$AG_CRM_HOST'\"' >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'export AG_CRM_PORT=\"'$AG_CRM_PORT'\"' >> $AG_DEMO_HOME/FSW_Launch.sh
 echo ' ' >> $AG_DEMO_HOME/FSW_Launch.sh
 echo 'echo environment variables attached to the demo : '>> $AG_DEMO_HOME/FSW_Launch.sh
 echo 'env | grep AG_' >> $AG_DEMO_HOME/FSW_Launch.sh
+echo ' ' >> $AG_DEMO_HOME/FSW_Launch.sh
+echo 'read -n 1 -p '"'Press any key to continue or [CTL]+C to stop'"' ' >> $AG_DEMO_HOME/FSW_Launch.sh
+echo ' ' >> $AG_DEMO_HOME/FSW_Launch.sh
 echo $AG_FSW_HOME/bin/standalone.sh >> $AG_DEMO_HOME/FSW_Launch.sh
 
 echo "#!/bin/sh" >> $AG_DEMO_HOME/BAM_Launch.sh
 echo "#Launch BPM-Suite BAM for Demo AngryClaim"  >> $AG_DEMO_HOME/BAM_Launch.sh
+echo 'service mysqld status ||  { echo \"mysql server is not up.... aborting.\"; exit 1; }'>> $AG_DEMO_HOME/BAM_Launch.sh
 echo $AG_BAM_HOME/bin/standalone.sh >> $AG_DEMO_HOME/BAM_Launch.sh
 
 chmod +x BAM_Launch.sh FSW_Launch.sh
@@ -270,36 +296,48 @@ echo "        mvn clean package  ">>readme.txt
 echo "  2) Deploy the application into Fuse Service works">>readme.txt
 echo "        cp " $AG_DEMO_HOME/crm-service/target/crm-service.war " " $AG_FSW_HOME/standalone/deployments/>>readme.txt
 echo "        cp " $AG_DEMO_HOME/switchyard-ear/target/switchyard-angrytweet.ear " " $AG_FSW_HOME/standalone/deployments/>>readme.txt
+echo "        cp " $AG_DEMO_HOME/rtgov-ip/target/angrytweet-ip.war " " $AG_FSW_HOME/standalone/deployments/>>readme.txt
+echo "        cp " $AG_DEMO_HOME/rtgov-epn-situation/target/angrytweet-epn-situation.war " " $AG_FSW_HOME/standalone/deployments/>>readme.txt
 echo " "     >>readme.txt
 echo " "     >>readme.txt
 echo "Before FSW re-start, update of the CRM users  in" >>readme.txt
 echo "            "  $AG_FSW_HOME/standalone/configuration/crm.properties>>readme.txt
 echo " " >>readme.txt
-echo "After BAM Start, in the dashboard configuration, create" >>readme.txt
-echo "    create externalConnection JNDI : name=      AngryClamDB " >>readme.txt
+echo "After BAM Start, in the dashboard configuration" >>readme.txt
+echo "    a)create externalConnection JNDI : name=      AngryClamDB " >>readme.txt
 echo "                                     jndiPath=  java:jboss/datasources/AngryTweetDS" >>readme.txt
 echo "                                     testQuery= select 1"  >>readme.txt
 echo " " >>readme.txt
-echo "    create dataProvider : AngryClaimTickets" >>readme.txt
+echo "    b)create dataProvider : AngryClaimTickets" >>readme.txt
 echo "                          select * from ticket order by channel_in">>readme.txt
-echo "    create dataProvider : name=AngryClaimVeryAngryUsers " >>readme.txt
+echo " " >>readme.txt
+echo "    c)create dataProvider : name=AngryClaimVeryAngryUsers " >>readme.txt
 echo "                          select customer, area_code,compteur from(  select customer, area_code, count(*) as compteur  from (select customer,area_code, urgent  from ( select customer, channel_in, area_code, urgent from  angrytweet.ticket group by customer,channel_in order by customer, channel_in) AS T) as T2  group by customer) as T3 where compteur>1;" >>readme.txt
-echo "    and import the following file into the BAM workspace">>readme.txt
+echo " " >>readme.txt
+echo "    d)import the following file into the BAM workspace">>readme.txt
 echo "            "  $AG_DEMO_HOME/etc/BAM/kpiExport_76041004.xml>>readme.txt
 echo "            "  $AG_DEMO_HOME/etc/BAM/export_workspace.cex>>readme.txt
 echo " ">>readme.txt
+echo " " >>readme.txt
+echo " " >>readme.txt
 echo "You can now start FSW  with FSW_Launch.sh ">>readme.txt
-echo " "
+echo " ">>readme.txt
 echo "               and BAM with BAM_Launch.sh ">>readme.txt
+echo " ">>readme.txt
 echo " ">>readme.txt
 echo "URL to launch BAM is ">>readme.txt
 echo "            http://localhost:18080/dashbuilder/workspace/en/AngryClaimShowcase" >>readme.txt
+echo "     with BAM user  :  admin / redhat123@">>readme.txt
+echo ' '>>readme.txt
 echo " ">>readme.txt
+echo "URL to launch EAP Management console : http://localhost:9990/console/App.html#server-overview">>readme.txt
+echo "    with user          admin / AngryCla1!m">>readme.txt
+echo ' '>>readme.txt
 echo " ">>readme.txt
-echo "BAM users  are : ">>readme.txt
-echo "#    admin / redhat123@">>readme.txt
-echo ' '
-echo ' '
+echo "URL to launch FSW RT-GOV console :http://localhost:8080/s-ramp-ui/">>readme.txt
+echo "    with user           fswAdmin / AngryCla1!m">>readme.txt
+echo ' '>>readme.txt
+echo ' '>>readme.txt
 cat readme.txt
 echo
 echo "******************************************************************"
