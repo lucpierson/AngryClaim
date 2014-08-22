@@ -11,3 +11,7 @@ reload :
 mysql -u jboss -p -h localhost 
 
 mysql> LOAD XML /home/lpierson/AngryClaim/tickets.xml INTO TABLE angrytweet.ticket;
+
+drop database
+mysql -u jboss -pjboss -h localhost -e 'drop database angrytweet';
+mysql -u jboss -pjboss -h localhost -e 'drop schema bpmsdemo';

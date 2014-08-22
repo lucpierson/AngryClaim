@@ -281,64 +281,64 @@ echo $AG_BAM_HOME/bin/standalone.sh >> $AG_DEMO_HOME/BAM_Launch.sh
 
 chmod +x BAM_Launch.sh FSW_Launch.sh
 
-echo " " >>readme.txt
-echo "******************************************************************">>readme.txt
-echo "**                                                          ******">>readme.txt
-echo "**        A N G R Y              C L A I M                  ******">>readme.txt
-echo "**                                                          ******">>readme.txt
-echo "**        F I N A L    I N S T R U C T I O N S              ******">>readme.txt
-echo "**                                                          ******">>readme.txt
-echo "******************************************************************">>readme.txt
-echo " ">>readme.txt
-echo "Other actions may be very long, please launch them Manually : ">>readme.txt
-echo "  1) creation of the deployable applications with maven clean package">>readme.txt
-echo "        mvn clean package  ">>readme.txt
-echo "  2) Deploy the application into Fuse Service works">>readme.txt
-echo "        cp " $AG_DEMO_HOME/crm-service/target/crm-service.war " " $AG_FSW_HOME/standalone/deployments/>>readme.txt
-echo "        cp " $AG_DEMO_HOME/switchyard-ear/target/switchyard-angrytweet.ear " " $AG_FSW_HOME/standalone/deployments/>>readme.txt
-echo "        cp " $AG_DEMO_HOME/rtgov-ip/target/angrytweet-ip.war " " $AG_FSW_HOME/standalone/deployments/>>readme.txt
-echo "        cp " $AG_DEMO_HOME/rtgov-epn-situation/target/angrytweet-epn-situation.war " " $AG_FSW_HOME/standalone/deployments/>>readme.txt
-echo " "     >>readme.txt
-echo " "     >>readme.txt
-echo "Before FSW re-start, update of the CRM users  in" >>readme.txt
-echo "            "  $AG_FSW_HOME/standalone/configuration/crm.properties>>readme.txt
-echo " " >>readme.txt
-echo "After BAM Start, in the dashboard configuration" >>readme.txt
-echo "    a)create externalConnection JNDI : name=      AngryClamDB " >>readme.txt
-echo "                                     jndiPath=  java:jboss/datasources/AngryTweetDS" >>readme.txt
-echo "                                     testQuery= select 1"  >>readme.txt
-echo " " >>readme.txt
-echo "    b)create dataProvider : AngryClaimTickets" >>readme.txt
-echo "                          select * from ticket order by channel_in">>readme.txt
-echo " " >>readme.txt
-echo "    c)create dataProvider : name=AngryClaimVeryAngryUsers " >>readme.txt
-echo "                          select customer, area_code,compteur from(  select customer, area_code, count(*) as compteur  from (select customer,area_code, urgent  from ( select customer, channel_in, area_code, urgent from  angrytweet.ticket group by customer,channel_in order by customer, channel_in) AS T) as T2  group by customer) as T3 where compteur>1;" >>readme.txt
-echo " " >>readme.txt
-echo "    d)import the following file into the BAM workspace">>readme.txt
-echo "            "  $AG_DEMO_HOME/etc/BAM/kpiExport_76041004.xml>>readme.txt
-echo "            "  $AG_DEMO_HOME/etc/BAM/export_workspace.cex>>readme.txt
-echo " ">>readme.txt
-echo " " >>readme.txt
-echo " " >>readme.txt
-echo "You can now start FSW  with FSW_Launch.sh ">>readme.txt
-echo " ">>readme.txt
-echo "               and BAM with BAM_Launch.sh ">>readme.txt
-echo " ">>readme.txt
-echo " ">>readme.txt
-echo "URL to launch BAM is ">>readme.txt
-echo "            http://localhost:18080/dashbuilder/workspace/en/AngryClaimShowcase" >>readme.txt
-echo "     with BAM user  :  admin / redhat123@">>readme.txt
-echo ' '>>readme.txt
-echo " ">>readme.txt
-echo "URL to launch EAP Management console : http://localhost:9990/console/App.html#server-overview">>readme.txt
-echo "    with user          admin / AngryCla1!m">>readme.txt
-echo ' '>>readme.txt
-echo " ">>readme.txt
-echo "URL to launch FSW RT-GOV console :http://localhost:8080/s-ramp-ui/">>readme.txt
-echo "    with user           fswAdmin / AngryCla1!m">>readme.txt
-echo ' '>>readme.txt
-echo ' '>>readme.txt
-cat readme.txt
+echo " " >>demoInstructions.txt
+echo "******************************************************************">>demoInstructions.txt
+echo "**                                                          ******">>demoInstructions.txt
+echo "**        A N G R Y              C L A I M                  ******">>demoInstructions.txt
+echo "**                                                          ******">>demoInstructions.txt
+echo "**        F I N A L    I N S T R U C T I O N S              ******">>demoInstructions.txt
+echo "**                                                          ******">>demoInstructions.txt
+echo "******************************************************************">>demoInstructions.txt
+echo " ">>demoInstructions.txt
+echo "Other actions may be very long, please launch them Manually : ">>demoInstructions.txt
+echo "  1) creation of the deployable applications with maven clean package">>demoInstructions.txt
+echo "        mvn clean package  ">>demoInstructions.txt
+echo "  2) Deploy the application into Fuse Service works">>demoInstructions.txt
+echo "        cp " $AG_DEMO_HOME/crm-service/target/crm-service.war " " $AG_FSW_HOME/standalone/deployments/>>demoInstructions.txt
+echo "        cp " $AG_DEMO_HOME/switchyard-ear/target/switchyard-angrytweet.ear " " $AG_FSW_HOME/standalone/deployments/>>demoInstructions.txt
+echo "        cp " $AG_DEMO_HOME/rtgov-ip/target/angrytweet-ip.war " " $AG_FSW_HOME/standalone/deployments/>>demoInstructions.txt
+echo "        cp " $AG_DEMO_HOME/rtgov-epn-situation/target/angrytweet-epn-situation.war " " $AG_FSW_HOME/standalone/deployments/>>demoInstructions.txt
+echo " "     >>demoInstructions.txt
+echo " "     >>demoInstructions.txt
+echo "Before FSW re-start, update of the CRM users  in" >>demoInstructions.txt
+echo "            "  $AG_FSW_HOME/standalone/configuration/crm.properties>>demoInstructions.txt
+echo " " >>demoInstructions.txt
+echo "After BAM Start, in the dashboard configuration" >>demoInstructions.txt
+echo "    a)create externalConnection JNDI : name=      AngryClamDB " >>demoInstructions.txt
+echo "                                     jndiPath=  java:jboss/datasources/AngryTweetDS" >>demoInstructions.txt
+echo "                                     testQuery= select 1"  >>demoInstructions.txt
+echo " " >>demoInstructions.txt
+echo "    b)create dataProvider : AngryClaimTickets" >>demoInstructions.txt
+echo "                          select * from ticket order by channel_in">>demoInstructions.txt
+echo " " >>demoInstructions.txt
+echo "    c)create dataProvider : name=AngryClaimVeryAngryUsers " >>demoInstructions.txt
+echo "                          select customer, area_code,compteur from(  select customer, area_code, count(*) as compteur  from (select customer,area_code, urgent  from ( select customer, channel_in, area_code, urgent from  angrytweet.ticket group by customer,channel_in order by customer, channel_in) AS T) as T2  group by customer) as T3 where compteur>1;" >>demoInstructions.txt
+echo " " >>demoInstructions.txt
+echo "    d)import the following file into the BAM workspace">>demoInstructions.txt
+echo "            "  $AG_DEMO_HOME/etc/BAM/kpiExport_76041004.xml>>demoInstructions.txt
+echo "            "  $AG_DEMO_HOME/etc/BAM/export_workspace.cex>>demoInstructions.txt
+echo " ">>demoInstructions.txt
+echo " " >>demoInstructions.txt
+echo " " >>demoInstructions.txt
+echo "You can now start FSW  with FSW_Launch.sh ">>demoInstructions.txt
+echo " ">>demoInstructions.txt
+echo "               and BAM with BAM_Launch.sh ">>demoInstructions.txt
+echo " ">>demoInstructions.txt
+echo " ">>demoInstructions.txt
+echo "URL to launch BAM is ">>demoInstructions.txt
+echo "            http://localhost:18080/dashbuilder/workspace/en/AngryClaimShowcase" >>demoInstructions.txt
+echo "     with BAM user  :  admin / redhat123@">>demoInstructions.txt
+echo ' '>>demoInstructions.txt
+echo " ">>demoInstructions.txt
+echo "URL to launch EAP Management console : http://localhost:9990/console/App.html#server-overview">>demoInstructions.txt
+echo "    with user          admin / AngryCla1!m">>demoInstructions.txt
+echo ' '>>demoInstructions.txt
+echo " ">>demoInstructions.txt
+echo "URL to launch FSW RT-GOV console :http://localhost:8080/s-ramp-ui/">>demoInstructions.txt
+echo "    with user           fswAdmin / AngryCla1!m">>demoInstructions.txt
+echo ' '>>demoInstructions.txt
+echo ' '>>demoInstructions.txt
+cat demoInstructions.txt
 echo
 echo "******************************************************************"
 echo
